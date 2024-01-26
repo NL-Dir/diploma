@@ -1,0 +1,19 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="essentials.tgr.models.TGR.objects" />
+          <option value="essentials.tgr.models.Owner.objects" />
+          <option value="essentials.tgr.models.FObject.objects" />
+          <option value="essentials.tgr.models.Parcel.objects" />
+          <option value="essentials.tgr.models.Contour.objects" />
+          <option value="essentials.tgr.models.Zone.objects" />
+          <option value="essentials.tgr.models.Building.objects" />
+          <option value="django.db.models.fields.CharField.translate" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
