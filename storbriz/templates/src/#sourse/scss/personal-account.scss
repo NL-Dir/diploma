@@ -1,0 +1,56 @@
+.personal-account {
+   padding: 0px 0px 40px 0px;
+   .main-menu {
+      display: none;
+   }
+}
+.personal-account {
+   &__container {
+      text-align: center;
+   }
+
+   &__title {
+      margin: 0px 0px 10px 0px;
+   }
+
+   &__content {
+      text-align: left;
+      margin: 0 auto;
+      border: 1px solid #959594;
+      border-radius: 24px;
+      background-color: #f9f9f9;
+      padding: 20px 30px 20px 30px;
+      max-width: 900px;
+   }
+
+   &__item {
+   }
+   &__buttons {
+      display: flex;
+      justify-content: space-between;
+   }
+   &__button {
+      color: #d5b0bd;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 20px;
+      letter-spacing: 0em;
+      background-color: #f9f9f9;
+   }
+}
+
+.item-account {
+   font-size: 20px;
+   font-weight: 400;
+   line-height: 28px;
+   letter-spacing: 0em;
+   margin: 0px 0px 20px 0px;
+
+   &__title {
+      color: #959594;
+   }
+
+   &__information {
+      color: #1c1c1c;
+   }
+}

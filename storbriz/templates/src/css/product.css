@@ -1,0 +1,15 @@
+.card-product__name {
+	font-size: 100px;
+	font-weight: 700;
+	line-height: 22px;
+	letter-spacing: 0em;
+	color: red;
+}
+.card-product__delivery-terms {
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 20px;
+	letter-spacing: 0em;
+	text-align: center;
+	color: #959594;
+}
