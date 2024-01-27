@@ -10,7 +10,7 @@ class GoodsList(ListView):
     context_object_name = 'goods'
 
     def get_queryset(self):
-        queryset = {'new_goods': Good.objects.all(),
-                    'top_goods': Good.objects.all()}
+        queryset = {'new_goods': Good.objects.order_by('is_new', 'id'),
+                    'top_goods': Good.objects.filter(is_popular=True)}
         return queryset
 

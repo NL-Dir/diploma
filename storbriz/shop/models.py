@@ -47,6 +47,11 @@ class Good(models.Model):
         (26, 'Обувь'),
         (27, 'Аксессуары'),
     )
+    GENDER_CHOICES = (
+        (0, 'Мужское'),
+        (1, 'Женское'),
+        (2, 'Детское'),
+    )
     
     name = models.CharField(max_length=255, verbose_name='наименование', null=True, blank=True)
     image_1 = models.ImageField(upload_to='img/', null=True, blank=True, verbose_name='изображение 1')
@@ -54,8 +59,10 @@ class Good(models.Model):
     image_3 = models.ImageField(upload_to='img/', null=True, blank=True, verbose_name='изображение 3')
     image_4 = models.ImageField(upload_to='img/', null=True, blank=True, verbose_name='изображение 4')
     is_new = models.BooleanField(default=False, verbose_name='новинка')
+    is_popular = models.BooleanField(default=False, verbose_name='популярный товар')
     price = models.FloatField(verbose_name='цена', null=True, blank=True)
     type = models.IntegerField(verbose_name='тип', null=True, blank=True, choices=TYPE_CHOICES)
+    gender = models.IntegerField(verbose_name='пол', null=True, blank=True, choices=GENDER_CHOICES)
     description = models.TextField(verbose_name='описание', null=True, blank=True)
     color = models.CharField(max_length=20, verbose_name='цвет', null=True, blank=True)
     color_code = models.IntegerField(verbose_name='код цвета', null=True, blank=True)
