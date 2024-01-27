@@ -1,3 +1,4 @@
+{% load static %}
 <header id="header" class="header lock-padding">
    <div class="header-container container">
       <div class="header__top top-header">
@@ -5,7 +6,7 @@
             <div class="top-header__column top-header__column-1">
 
                <a href="home.html" class="top-header__logo">
-                  <img src="img/img/storbizz.png" alt="#">
+                  <img src="{% static 'img/img/storbizz.png'%}" alt="#">
                </a>
                <!--<div class="top-header__catalog">
                   <a href="#" class="top-header__btn btn">
@@ -38,15 +39,15 @@
                   <div class="categories-search__bottom search-bottom">
                      <a href="#" class="search-bottom__item search-bottom__item-active">
                         <div class="search-bottom__text">Искать товары</div>
-                        <div class="search-bottom__close"><img src="img/img/close.png" alt=""></div>
+                        <div class="search-bottom__close"><img src="{% static 'img/img/close.png' %}" alt=""></div>
                      </a>
                      <a href="#" class="search-bottom__item">
                         <div class="search-bottom__text">Искать товары</div>
-                        <div class="search-bottom__close"><img src="img/img/close.png" alt=""></div>
+                        <div class="search-bottom__close"><img src="{% static 'img/img/close.png' %}" alt=""></div>
                      </a>
                      <a href="#" class="search-bottom__item">
                         <div class="search-bottom__text">Искать товары</div>
-                        <div class="search-bottom__close"><img src="img/img/close.png" alt=""></div>
+                        <div class="search-bottom__close"><img src="{% static 'img/img/close.png' %}" alt=""></div>
                      </a>
                   </div>
                </div>
@@ -63,12 +64,12 @@
 
                      </a>-->
                      <a href="basket.html" class="top-header__item item-header">
-                        <div class="item-header__icon"> <img src="img/img/icons/header/icon-2.png" alt=""><span>3</span>
+                        <div class="item-header__icon"> <img src="{% static 'img/img/icons/header/icon-2.png' %}" alt=""><span>3</span>
                         </div>
                         <div class="item-header__name">Корзина</div>
                      </a>
                      <a href="#popup" class="top-header__item item-header popup-link">
-                        <div class="item-header__icon"> <img src="img/img/icons/header/icon-3.png" alt="">
+                        <div class="item-header__icon"> <img src="{% static 'img/img/icons/header/icon-3.png' %}" alt="">
                         </div>
                         <div class="item-header__name">Войти</div>
                      </a>
