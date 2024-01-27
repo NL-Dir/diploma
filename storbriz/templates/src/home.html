@@ -944,6 +944,7 @@
                               </div>
                               <div class="products-block__goods">
 <a href="page-product.html" class="card-product">
+   {% for good in goods %}
    <div class="card-product__labels">
       <div class="card-product__label">Новинка</div>
    </div>
@@ -951,7 +952,7 @@
       <div class="card-product__body items-slider__body-1 _swiper">
          <div class="card-product__slide">
             <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
+               <img src="{{ good.image_1.url }}" alt="#">
             </div>
          </div>
          <div class="card-product__slide">
@@ -971,6 +972,7 @@
          </div>
       </div>
    </div>
+   {% endfor %}
    <div class="card-product__name">Футболка хлопковая</div>
    <div class="card-product__price"> <span class="card-product__count rub">2999</span>
    </div>

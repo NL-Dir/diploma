@@ -8,4 +8,4 @@ class GoodsList(ListView):
     model = Good
     template_name = 'src/home.html'
     context_object_name = 'goods'
-    queryset = Good.objects.order_by('id')
+    queryset = Good.objects.order_by('is_new', 'id')
