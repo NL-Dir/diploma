@@ -44,6 +44,8 @@ class Good(models.Model):
         (23, 'Нижнее белье'),
         (24, 'Спортивная одежда'),
         (25, 'Одежда для дома'),
+        (26, 'Обувь'),
+        (27, 'Аксессуары'),
     )
     
     name = models.CharField(max_length=255, verbose_name='наименование', null=True, blank=True)
