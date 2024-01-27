@@ -973,7 +973,7 @@
       </div>
    </div>
    <div class="card-product__name">{{ good.name }}</div>
-   <div class="card-product__price"> <span class="card-product__count rub">{{ good.price }}</span>
+   <div class="card-product__price"> <span class="card-product__count rub">{{ good.price|floatformat:0 }}</span>
    </div>
 <!--   <div class="card-product__delivery-terms">Доставка послезавтра </div>-->
    {% endfor %}
