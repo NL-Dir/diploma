@@ -8,4 +8,9 @@ class GoodsList(ListView):
     model = Good
     template_name = 'src/home.html'
     context_object_name = 'goods'
-    queryset = Good.objects.order_by('is_new', 'id')
+
+    def get_queryset(self):
+        queryset = {'new_goods': Good.objects.all(),
+                    'top_goods': Good.objects.all()}
+        return queryset
+

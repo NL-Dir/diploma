@@ -17,6 +17,35 @@ class Good(models.Model):
     #     (5, 'XXL'),
     #
     # )
+    TYPE_CHOICES = (
+        (0, 'Бомберы'),
+        (1, 'Ветровки'),
+        (2, 'Джинсовые куртки'),
+        (3, 'Кожаные куртки'),
+        (4, 'Куртки рубашки'),
+        (5, 'Пальто'),
+        (6, 'Пуховики'),
+        (7, 'Тренчи'),
+        (8, 'Куртки'),
+        (9, 'Водолазки'),
+        (10, 'Джемперы'),
+        (11, 'Кардиганы'),
+        (12, 'Свитеры'),
+        (13, 'Джинсы'),
+        (14, 'Платья'),
+        (15, 'Футболки, поло, лонгсливы'),
+        (16, 'Худи, толстовки и свитшоты'),
+        (17, 'Брюки'),
+        (18, 'Блузы и рубашки'),
+        (19, 'Юбки'),
+        (20, 'Пиджаки и жакеты'),
+        (21, 'Шорты'),
+        (22, 'Топы и майки'),
+        (23, 'Нижнее белье'),
+        (24, 'Спортивная одежда'),
+        (25, 'Одежда для дома'),
+    )
+    
     name = models.CharField(max_length=255, verbose_name='наименование', null=True, blank=True)
     image_1 = models.ImageField(upload_to='img/', null=True, blank=True, verbose_name='изображение 1')
     image_2 = models.ImageField(upload_to='img/', null=True, blank=True, verbose_name='изображение 2')
@@ -24,6 +53,7 @@ class Good(models.Model):
     image_4 = models.ImageField(upload_to='img/', null=True, blank=True, verbose_name='изображение 4')
     is_new = models.BooleanField(default=False, verbose_name='новинка')
     price = models.FloatField(verbose_name='цена', null=True, blank=True)
+    type = models.IntegerField(verbose_name='тип', null=True, blank=True, choices=TYPE_CHOICES)
     description = models.TextField(verbose_name='описание', null=True, blank=True)
     color = models.CharField(max_length=20, verbose_name='цвет', null=True, blank=True)
     color_code = models.IntegerField(verbose_name='код цвета', null=True, blank=True)
