@@ -943,8 +943,8 @@
                                  <button type="submit" class="products-block__btn">Смотреть все</button>
                               </div>
                               <div class="products-block__goods">
-<a href="page-product.html" class="card-product">
    {% for good in goods %}
+<a href="page-product.html" class="card-product">
    <div class="card-product__labels">
       <div class="card-product__label">Новинка</div>
    </div>
@@ -957,26 +957,26 @@
          </div>
          <div class="card-product__slide">
             <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
+               <img src="{{ good.image_2.url }}" alt="#">
             </div>
          </div>
          <div class="card-product__slide">
             <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
+               <img src="{{ good.image_3.url }}" alt="#">
             </div>
          </div>
          <div class="card-product__slide">
             <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
+               <img src="{{ good.image_4.url }}" alt="#">
             </div>
          </div>
       </div>
    </div>
-   {% endfor %}
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
+   <div class="card-product__name">{{ good.name }}</div>
+   <div class="card-product__price"> <span class="card-product__count rub">{{ good.price }}</span>
    </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
+<!--   <div class="card-product__delivery-terms">Доставка послезавтра </div>-->
+   {% endfor %}
 </a><a href="page-product.html" class="card-product">
    <div class="card-product__labels">
       <div class="card-product__label">Новинка</div>
