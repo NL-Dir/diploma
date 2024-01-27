@@ -944,7 +944,7 @@
                               </div>
                               <div class="products-block__goods">
    {% for good in goods.new_goods %}
-<a href="page-product.html" class="card-product">
+<a href="{% url 'shop:good' good.id %}" class="card-product">
    {% if good.is_new %}
    <div class="card-product__labels">
       <div class="card-product__label">Новинка</div>
@@ -1026,7 +1026,7 @@
                               </div>
                               <div class="products-block__goods">
 {% for good in goods.top_goods %}
-<a href="page-product.html" class="card-product">
+<a href="{% url 'shop:good' good.id %}" class="card-product">
    {% if good.is_new %}
    <div class="card-product__labels">
       <div class="card-product__label">Новинка</div>
