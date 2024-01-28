@@ -68,7 +68,7 @@
                      {% else %}
                         <a href="#" class="top-header__item item-header">
                      {% endif %}
-                        <div class="item-header__icon"> <img src="{% static 'img/img/icons/header/icon-2.png' %}" alt=""><span>3</span>
+                        <div class="item-header__icon"> <img src="{% static 'img/img/icons/header/icon-2.png' %}" alt=""><span>{{ user.cart.goods.count }}</span>
                         </div>
                         <div class="item-header__name">Корзина</div>
                      </a>

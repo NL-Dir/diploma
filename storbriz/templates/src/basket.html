@@ -135,19 +135,24 @@
                <div class="content-basket__content">
                   <div class="content-basket__products">
                      <div class="content-basket__wrapper">
+
+{% if not cart.goods.all %}
+      Товаров в корзине нет
+{% else %}
+{% for good in cart.goods.all %}
 <div class="basket-product">
-   <a href="page-product.html" class="basket-product__img card-product__image  ibg"><img src="img/img/product.jpg"
+   <a href="page-product.html" class="basket-product__img card-product__image  ibg"><img src="{{ good.image_1.url }}"
          alt="#"></a>
    <div class="basket-product__content">
       <div class="basket-product__top">
-         <div class="basket-product__name card-product__name">футболка</div>
-         <a href="#popup_3" class="basket-product__delete  popup-link"><img src="img/img/close.png" alt="#"></a>
+         <div class="basket-product__name card-product__name">{{ good.name }}</div>
+         <a href="#popup_3" class="basket-product__delete  popup-link"><img src="{% static 'img/img/close.png' %}" alt="#"></a>
       </div>
       <div class="basket-product__buttom">
-         <div class="basket-product__price card-product__price rub">2999
+         <div class="basket-product__price card-product__price rub">{{ good.price|floatformat:0 }}
          </div>
          <div class="basket-product__size-content">
-            <div class="basket-product__size">M</div>
+            <div class="basket-product__size">{{ good.cartgood.size }}</div>
             <div class="basket-product__select">
                <select name="form[]" class="show">
                   <option value="1" selected="selected">1 шт</option>
@@ -160,71 +165,80 @@
          <div class="basket-product__remainder">последние <span class="count">2 </span></div>
       </div>
    </div>
-</div><div class="basket-product">
-   <a href="page-product.html" class="basket-product__img card-product__image  ibg"><img src="img/img/product.jpg"
-         alt="#"></a>
-   <div class="basket-product__content">
-      <div class="basket-product__top">
-         <div class="basket-product__name card-product__name">футболка</div>
-         <a href="#popup_3" class="basket-product__delete  popup-link"><img src="img/img/close.png" alt="#"></a>
-      </div>
-      <div class="basket-product__buttom">
-         <div class="basket-product__price card-product__price rub">2999
-         </div>
-         <div class="basket-product__size-content">
-            <div class="basket-product__size">M</div>
-            <div class="basket-product__select">
-               <select name="form[]" class="show">
-                  <option value="1" selected="selected">1 шт</option>
-                  <option value="2">2 шт</option>
-                  <option value="3">3 шт</option>
-                  <option value="4">4 шт</option>
-               </select>
-            </div>
-         </div>
-         <div class="basket-product__remainder">последние <span class="count">2 </span></div>
-      </div>
-   </div>
-</div><div class="basket-product">
-   <a href="page-product.html" class="basket-product__img card-product__image  ibg"><img src="img/img/product.jpg"
-         alt="#"></a>
-   <div class="basket-product__content">
-      <div class="basket-product__top">
-         <div class="basket-product__name card-product__name">футболка</div>
-         <a href="#popup_3" class="basket-product__delete  popup-link"><img src="img/img/close.png" alt="#"></a>
-      </div>
-      <div class="basket-product__buttom">
-         <div class="basket-product__price card-product__price rub">2999
-         </div>
-         <div class="basket-product__size-content">
-            <div class="basket-product__size">M</div>
-            <div class="basket-product__select">
-               <select name="form[]" class="show">
-                  <option value="1" selected="selected">1 шт</option>
-                  <option value="2">2 шт</option>
-                  <option value="3">3 шт</option>
-                  <option value="4">4 шт</option>
-               </select>
-            </div>
-         </div>
-         <div class="basket-product__remainder">последние <span class="count">2 </span></div>
-      </div>
-   </div>
-</div>                     </div>
+</div>
+{% endfor %}
+{% endif %}
+<!--<div class="basket-product">-->
+<!--   <a href="page-product.html" class="basket-product__img card-product__image  ibg"><img src="img/img/product.jpg"-->
+<!--         alt="#"></a>-->
+<!--   <div class="basket-product__content">-->
+<!--      <div class="basket-product__top">-->
+<!--         <div class="basket-product__name card-product__name">футболка</div>-->
+<!--         <a href="#popup_3" class="basket-product__delete  popup-link"><img src="img/img/close.png" alt="#"></a>-->
+<!--      </div>-->
+<!--      <div class="basket-product__buttom">-->
+<!--         <div class="basket-product__price card-product__price rub">2999-->
+<!--         </div>-->
+<!--         <div class="basket-product__size-content">-->
+<!--            <div class="basket-product__size">M</div>-->
+<!--            <div class="basket-product__select">-->
+<!--               <select name="form[]" class="show">-->
+<!--                  <option value="1" selected="selected">1 шт</option>-->
+<!--                  <option value="2">2 шт</option>-->
+<!--                  <option value="3">3 шт</option>-->
+<!--                  <option value="4">4 шт</option>-->
+<!--               </select>-->
+<!--            </div>-->
+<!--         </div>-->
+<!--         <div class="basket-product__remainder">последние <span class="count">2 </span></div>-->
+<!--      </div>-->
+<!--   </div>-->
+<!--</div><div class="basket-product">-->
+<!--   <a href="page-product.html" class="basket-product__img card-product__image  ibg"><img src="img/img/product.jpg"-->
+<!--         alt="#"></a>-->
+<!--   <div class="basket-product__content">-->
+<!--      <div class="basket-product__top">-->
+<!--         <div class="basket-product__name card-product__name">футболка</div>-->
+<!--         <a href="#popup_3" class="basket-product__delete  popup-link"><img src="img/img/close.png" alt="#"></a>-->
+<!--      </div>-->
+<!--      <div class="basket-product__buttom">-->
+<!--         <div class="basket-product__price card-product__price rub">2999-->
+<!--         </div>-->
+<!--         <div class="basket-product__size-content">-->
+<!--            <div class="basket-product__size">M</div>-->
+<!--            <div class="basket-product__select">-->
+<!--               <select name="form[]" class="show">-->
+<!--                  <option value="1" selected="selected">1 шт</option>-->
+<!--                  <option value="2">2 шт</option>-->
+<!--                  <option value="3">3 шт</option>-->
+<!--                  <option value="4">4 шт</option>-->
+<!--               </select>-->
+<!--            </div>-->
+<!--         </div>-->
+<!--         <div class="basket-product__remainder">последние <span class="count">2 </span></div>-->
+<!--      </div>-->
+<!--   </div>-->
+<!--</div>   -->
+
+                     </div>
                   </div>
                   <div class="content-basket__total">
                      <div class="content-basket__total-content">
                         <div class="content-basket__item">
                            <div class="content-basket__left content-basket__sum">сумма заказа</div>
-                           <div class="content-basket__right content-basket__sum rub">4998</div>
+                           <div class="content-basket__right content-basket__sum rub">{{ cart.goods_cost|floatformat:0 }}</div>
                         </div>
                         <div class="content-basket__item">
                            <div class="content-basket__left content-basket__delivery">доставка</div>
+                           {% if cart.delivery_cost %}
+                           <div class="content-basket__right content-basket__delivery">{{ cart.delivery_cost|floatformat:0 }}</div>
+                           {% else %}
                            <div class="content-basket__right content-basket__delivery">бесплатно</div>
+                           {% endif %}
                         </div>
                         <div class="content-basket__item">
                            <div class="content-basket__left content-basket__result">итого</div>
-                           <div class="content-basket__right content-basket__result rub">4998</div>
+                           <div class="content-basket__right content-basket__result rub">{{ cart.total|floatformat:0 }}</div>
                         </div>
                         <a href="page-delivery.html" type="submit" class="content-basket__btn btn  btn-input">оформить
                            заказ</a>

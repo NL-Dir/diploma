@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
+from django.forms import modelformset_factory
 
 from .models import Good, Cart
 
@@ -25,3 +26,4 @@ class CartDetailView(DetailView):
     model = Cart
     template_name = 'src/basket.html'
     context_object_name = 'cart'
+

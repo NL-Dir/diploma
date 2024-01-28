@@ -8,15 +8,6 @@ class Person(models.Model):
 
 
 class Good(models.Model):
-    # SIZE_CHOICES = (
-    #     (0, 'XS'),
-    #     (1, 'S'),
-    #     (2, 'M'),
-    #     (3, 'L'),
-    #     (4, 'XL'),
-    #     (5, 'XXL'),
-    #
-    # )
     TYPE_CHOICES = (
         (0, 'Бомберы'),
         (1, 'Ветровки'),
@@ -52,7 +43,7 @@ class Good(models.Model):
         (1, 'Женское'),
         (2, 'Детское'),
     )
-    
+
     name = models.CharField(max_length=255, verbose_name='наименование', null=True, blank=True)
     image_1 = models.ImageField(upload_to='img/', null=True, blank=True, verbose_name='изображение 1')
     image_2 = models.ImageField(upload_to='img/', null=True, blank=True, verbose_name='изображение 2')
@@ -69,10 +60,47 @@ class Good(models.Model):
     article = models.CharField(max_length=20, verbose_name='артикул', null=True, blank=True)
     material = models.TextField(verbose_name='состав', null=True, blank=True)
     recommendation = models.TextField(verbose_name='рекомендации', null=True, blank=True)
+    goods = models.ManyToManyField('Cart', through='CartGood')
 
 
 class Cart(models.Model):
     user = models.OneToOneField(User, related_name='cart', on_delete=models.CASCADE)
+    goods = models.ManyToManyField(Good, through='CartGood')
+
+    @property
+    def goods_cost(self):
+        price_sum = 0
+        if self.goods:
+            for good in self.goods.all():
+                price_sum += good.price
+        return price_sum
+
+    @property
+    def delivery_cost(self):
+        cost = 349 if self.goods_cost <= 5000 else 0
+        return cost
+
+    @property
+    def total(self):
+        if self.goods:
+            return self.goods_cost + self.delivery_cost
+        else:
+            return 0
+
+
+class CartGood(models.Model):
+    SIZE_CHOICES = (
+        (0, 'XS'),
+        (1, 'S'),
+        (2, 'M'),
+        (3, 'L'),
+        (4, 'XL'),
+        (5, 'XXL'),
+
+    )
+    cartThrough = models.ForeignKey(Cart, on_delete=models.CASCADE)
+    goodThrough = models.ForeignKey(Good, on_delete=models.CASCADE)
+    size = models.IntegerField(verbose_name='размер', null=True, blank=True, choices=SIZE_CHOICES)
 
 
 class Order(models.Model):
