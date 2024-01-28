@@ -1,9 +1,8 @@
-
 {% extends './main.html' %}
 {% load static %}
 
 {% block title %}
-Имя страницы
+{{ good.name }}
 {% endblock title %}
 
 {% block content %}
@@ -17,31 +16,31 @@
                      <div class="page-product__body card-product__body ">
                         <div class="page-product__slide card-product__slide">
                            <div class="page-product__image card-product__image  ibg">
-                              <img src="img/img/product.jpg" alt="#">
+                              <img src="{{ good.image_1.url }}" alt="#">
                            </div>
                         </div>
                         <div class="page-product__slide card-product__slide">
                            <div class="page-product__image card-product__image  ibg">
-                              <img src="img/img/product.jpg" alt="#">
+                              <img src="{{ good.image_2.url }}" alt="#">
                            </div>
                         </div>
                         <div class="page-product__slide card-product__slide">
                            <div class="page-product__image card-product__image  ibg">
-                              <img src="img/img/product.jpg" alt="#">
+                              <img src="{{ good.image_3.url }}" alt="#">
                            </div>
                         </div>
                         <div class="page-product__slide card-product__slide">
                            <div class="page-product__image card-product__image  ibg">
-                              <img src="img/img/product.jpg" alt="#">
+                              <img src="{{ good.image_4.url }}" alt="#">
                            </div>
                         </div>
                      </div>
                   </div>
                </div>
                <div class="page-product__decor">
-                  <div class="page-product__name card-product__name">Футболка хлопковая прямая с надписью на груди</div>
+                  <div class="page-product__name card-product__name">{{ good.name }}</div>
                   <div class="page-product__price card-product__price"> <span
-                        class="card-product__count rub">2999</span>
+                        class="card-product__count rub">{{ good.price|floatformat:0 }}</span>
                   </div>
                   <div class="page-product__size size-product">
                      <div class="size-product__title">размер</div>
@@ -62,31 +61,30 @@
                               <div class="about-product__content">
                                  <div class="about-product__item">
                                     <div class="about-product__left">цвет</div>
-                                    <div class="about-product__right">белый</div>
+                                    <div class="about-product__right">{{ good.color }}</div>
                                  </div>
                                  <div class="about-product__item">
                                     <div class="about-product__left">артикул</div>
-                                    <div class="about-product__right">6563868</div>
+                                    <div class="about-product__right">{{ good.article }}</div>
                                  </div>
                                  <div class="about-product__item">
                                     <div class="about-product__left">код цвета</div>
-                                    <div class="about-product__right">4</div>
+                                    <div class="about-product__right">{{ good.color_code }}</div>
                                  </div>
                               </div>
 
                               <ul class="about-product__list">
-                                 <li class="about-product__link">- мужская футболка свободного прямого кроя из легкой,
-                                    дышащей и очень приятной к телу 100% хлопковой ткани с гладкой трикотажной фактурой
+                                 <li class="about-product__link">{{ good.description }}
                                  </li>
-                                 <li class="about-product__link">- классический круглый вырез горловины в мелкий рубчик
-                                 </li>
-                                 <li class="about-product__link">- короткие рукава чуть выше локтя с прямыми манжетами
-                                    без
-                                    отворотов</li>
-                                 <li class="about-product__link">- универсальная и стильная: сочетай ее с любыми
-                                    брюками,
-                                    джинсами или шортами и используй в качестве основы для трендовых многослойных луков
-                                    с пиджаками, джинсовками или куртками</li>
+<!--                                 <li class="about-product__link">- классический круглый вырез горловины в мелкий рубчик-->
+<!--                                 </li>-->
+<!--                                 <li class="about-product__link">- короткие рукава чуть выше локтя с прямыми манжетами-->
+<!--                                    без-->
+<!--                                    отворотов</li>-->
+<!--                                 <li class="about-product__link">- универсальная и стильная: сочетай ее с любыми-->
+<!--                                    брюками,-->
+<!--                                    джинсами или шортами и используй в качестве основы для трендовых многослойных луков-->
+<!--                                    с пиджаками, джинсовками или куртками</li>-->
                               </ul>
                            </div>
                         </div>
@@ -95,7 +93,7 @@
                            <div class="about-product__body">
                               <div class="about-product__item">
                                  <div class="about-product__left">состав</div>
-                                 <div class="about-product__right">хлопок 100%</div>
+                                 <div class="about-product__right">{{ good.material }}</div>
                               </div>
                               <div class="about-product__item">
                                  <div class="about-product__left">оттенок</div>
@@ -116,14 +114,14 @@
                            </div>
                         </div>
                         <div class="about-product__information">
-                           <div class="about-product__title _spoller">реркомендация по уходу</div>
+                           <div class="about-product__title _spoller">рекомендация по уходу</div>
                            <div class="about-product__body">
                               <ul class="about-product__list">
-                                 <li class="about-product__link">бережная стирка при максимальной температуре 30ºс</li>
-                                 <li class="about-product__link">не отбеливать</li>
-                                 <li class="about-product__link">машинная сушка запрещена</li>
-                                 <li class="about-product__link">глажение при 110ºс</li>
-                                 <li class="about-product__link">профессиональная сухая чистка</li>
+                                 <li class="about-product__link">{{ good.recommendation }}</li>
+<!--                                 <li class="about-product__link">не отбеливать</li>-->
+<!--                                 <li class="about-product__link">машинная сушка запрещена</li>-->
+<!--                                 <li class="about-product__link">глажение при 110ºс</li>-->
+<!--                                 <li class="about-product__link">профессиональная сухая чистка</li>-->
                               </ul>
                            </div>
                         </div>

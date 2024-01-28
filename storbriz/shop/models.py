@@ -67,6 +67,8 @@ class Good(models.Model):
     color = models.CharField(max_length=20, verbose_name='цвет', null=True, blank=True)
     color_code = models.IntegerField(verbose_name='код цвета', null=True, blank=True)
     article = models.CharField(max_length=20, verbose_name='артикул', null=True, blank=True)
+    material = models.TextField(verbose_name='состав', null=True, blank=True)
+    recommendation = models.TextField(verbose_name='рекомендации', null=True, blank=True)
 
 
 class Cart(models.Model):
