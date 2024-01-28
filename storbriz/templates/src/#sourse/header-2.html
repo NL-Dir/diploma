@@ -5,7 +5,7 @@
          <div class="top-header__content ">
             <div class="top-header__column top-header__column-1">
 
-               <a href="home.html" class="top-header__logo">
+               <a href="{% url 'shop:home' %}" class="top-header__logo">
                   <img src="{% static 'img/img/storbizz.png'%}" alt="#">
                </a>
                <!--<div class="top-header__catalog">
@@ -63,7 +63,11 @@
                         <div class="item-header__name">Заказы</div>
 
                      </a>-->
-                     <a href="basket.html" class="top-header__item item-header">
+                     {% if user.is_authenticated %}
+                     <a href="{% url 'shop:cart' user.id %}" class="top-header__item item-header">
+                     {% else %}
+                        <a href="#" class="top-header__item item-header">
+                     {% endif %}
                         <div class="item-header__icon"> <img src="{% static 'img/img/icons/header/icon-2.png' %}" alt=""><span>3</span>
                         </div>
                         <div class="item-header__name">Корзина</div>
