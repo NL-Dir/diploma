@@ -89,7 +89,7 @@
    <div class="popup__body">
       <div class="popup__content">
          <div class="authorization__window form__window">
-            <button href="#header" type="submit"
+            <button href="#" type="submit"
                class="authorization__btn btn  form__btn form__viewpass close-popup">удалить
                товар</button>
          </div>
@@ -141,12 +141,12 @@
 {% else %}
 {% for good in cart.goods.all %}
 <div class="basket-product">
-   <a href="page-product.html" class="basket-product__img card-product__image  ibg"><img src="{{ good.image_1.url }}"
+   <a href="{% url 'shop:good' good.id %}" class="basket-product__img card-product__image  ibg"><img src="{{ good.image_1.url }}"
          alt="#"></a>
    <div class="basket-product__content">
       <div class="basket-product__top">
          <div class="basket-product__name card-product__name">{{ good.name }}</div>
-         <a href="#popup_3" class="basket-product__delete  popup-link"><img src="{% static 'img/img/close.png' %}" alt="#"></a>
+         <a href="{% url 'shop:delete_from_cart' user.id good.id %}" class="basket-product__delete "><img src="{% static 'img/img/close.png' %}" alt="#"></a>
       </div>
       <div class="basket-product__buttom">
          <div class="basket-product__price card-product__price rub">{{ good.price|floatformat:0 }}
