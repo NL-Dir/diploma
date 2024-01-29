@@ -4024,34 +4024,34 @@ searchSelect.addEventListener("click", function (e) {
    //_slideToggle(categorySearch);
 });*/
 
-//main-menu==============
-document.getElementById('nav').onclick = function (event) {
-   var target = event.target;//отслеживаем где был клик
-   //var main_link = document.querySelector('.main-menu__link');
-   if (target.className == 'main-menu__link') {
-      var s = target.getElementsByClassName('submenu');
-      closeMenu();
-      s[0].style.display = 'block';
-   }
-
-}
-
-document.onclick = function (event) {
-   var target = event.target;
-   console.log(event.target);
-   if (target.className != 'main-menu__link' && target.className != 'submenu') {
-      closeMenu();
-   }
-}
-
-function closeMenu() {
-   var menu = document.getElementById('nav');
-   var subm = document.getElementsByClassName('submenu');
-   for (var i = 0; i < subm.length; i++) {
-      subm[i].style.display = "none";
-   }
-}
-//main-menu==============
+/*////main-menu==============
+////document.getElementById('nav').onclick = function (event) {
+////   var target = event.target;//отслеживаем! где был клик
+////   //var main_link = document.querySelector('.main-menu__link');
+////   if (target.className == 'main-menu__link') {
+////      var s = target.getElementsByClassName('submenu');
+////      closeMenu();
+////      s[0].style.display = 'block';
+////   }*/
+//
+//}
+//
+//document.onclick = function (event) {
+//   var target = event.target;
+//   console.log(event.target);
+//   if (target.className != 'main-menu__link' && target.className != 'submenu') {
+//      closeMenu();
+//   }
+//}
+//
+//function closeMenu() {
+//   var menu = document.getElementById('nav');
+//   var subm = document.getElementsByClassName('submenu');
+//   for (var i = 0; i < subm.length; i++) {
+//      subm[i].style.display = "none";
+//   }
+//}
+////main-menu==============
 
 
 
@@ -4234,7 +4234,7 @@ for (let i = 0; i < buttons.length; i++) {
 
 
 
-//клики на кнопки выбора размеров 
+//клики на кнопки выбора размеров
 /*let sizeProductItem = document.querySelectorAll('.size-product__item');
 for (let index = 0; index < sizeProductItem.length; index++) {
    let item = sizeProductItem[index];
@@ -4354,7 +4354,7 @@ for (let i = 0; i < informationFormTimeItem.length; i++) {
                   "parent": daElement.parentNode,
                   "index": indexInParent(daElement)
                };
-               //Заполняем массив элементов 
+               //Заполняем массив элементов
                daElementsArray[number] = {
                   "element": daElement,
                   "destination": document.querySelector('.' + daArray[0].trim()),
@@ -4428,7 +4428,7 @@ for (let i = 0; i < informationFormTimeItem.length; i++) {
       var children = Array.prototype.slice.call(el.parentNode.children);
       return children.indexOf(el);
    }
-   //Функция получения массива индексов элементов внутри родителя 
+   //Функция получения массива индексов элементов внутри родителя
    function indexOfElements(parent, back) {
       const children = parent.children;
       const childrenArray = [];
@@ -4461,7 +4461,7 @@ for (let i = 0; i < informationFormTimeItem.length; i++) {
 }());
 //Динамический адаптив (адаптив переносов элементов)=================
 console.log('динамический');
-/*//чтобы работала гнадпись в input 
+/*//чтобы работала гнадпись в input
 //FORMS
 function forms() {
    //FIELDS
@@ -4665,7 +4665,7 @@ function removeFormErrors(form) {
    form.find('.form__error').remove();
 }
 
-//чтобы работала гнадпись в input 
+//чтобы работала гнадпись в input
 
 */
 
@@ -5062,4 +5062,25 @@ document.addEventListener('keydown', function (e) {
          Element.prototype.msMatchesSelector;
    }
 })();
+
+//открытие каталога
+let buttonCatalog = document.querySelector('.top-header__catalog');
+let submenuShow = document.querySelector('.category-menu');
+buttonCatalog.addEventListener("click", function (e) {
+   buttonCatalog.classList.toggle('_active');
+   submenuShow.classList.toggle('_active');
+   //_slideToggle(categorySearch);
+});
+
+
+//открытие каталога
+
+
+
+//открытие каталога
+
+
+
+
+
 

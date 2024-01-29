@@ -381,32 +381,32 @@ searchSelect.addEventListener("click", function (e) {
 });*/
 
 //main-menu==============
-document.getElementById('nav').onclick = function (event) {
-   var target = event.target;//отслеживаем где был клик
-   //var main_link = document.querySelector('.main-menu__link');
-   if (target.className == 'main-menu__link') {
-      var s = target.getElementsByClassName('submenu');
-      closeMenu();
-      s[0].style.display = 'block';
-   }
-
-}
-
-document.onclick = function (event) {
-   var target = event.target;
-   console.log(event.target);
-   if (target.className != 'main-menu__link' && target.className != 'submenu') {
-      closeMenu();
-   }
-}
-
-function closeMenu() {
-   var menu = document.getElementById('nav');
-   var subm = document.getElementsByClassName('submenu');
-   for (var i = 0; i < subm.length; i++) {
-      subm[i].style.display = "none";
-   }
-}
+//document.getElementById('nav').onclick = function (event) {
+//   var target = event.target;//отслеживаем где был клик
+//   //var main_link = document.querySelector('.main-menu__link');
+//   if (target.className == 'main-menu__link') {
+//      var s = target.getElementsByClassName('submenu');
+//      closeMenu();
+//      s[0].style.display = 'block';
+//   }
+//
+//}
+//
+//document.onclick = function (event) {
+//   var target = event.target;
+//   console.log(event.target);
+//   if (target.className != 'main-menu__link' && target.className != 'submenu') {
+//      closeMenu();
+//   }
+//}
+//
+//function closeMenu() {
+//   var menu = document.getElementById('nav');
+//   var subm = document.getElementsByClassName('submenu');
+//   for (var i = 0; i < subm.length; i++) {
+//      subm[i].style.display = "none";
+//   }
+//}
 //main-menu==============
 
 
