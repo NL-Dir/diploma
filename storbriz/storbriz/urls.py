@@ -17,7 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from shop.views import UserDetailView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('shop.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('account/<int:pk>', UserDetailView.as_view(), name='account')
 ]

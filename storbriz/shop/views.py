@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
@@ -46,3 +47,9 @@ def delete_from_cart(request, pk, good_id):
     request.user.cart.goods.remove(Good.objects.get(id=good_id))
     request.user.cart.save()
     return HttpResponseRedirect(reverse('shop:cart', kwargs={'pk': pk}))
+
+
+class UserDetailView(DetailView):
+    model = User
+    template_name = 'src/personal-account.html'
+    context_object_name = 'user'

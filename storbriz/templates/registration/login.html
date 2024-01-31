@@ -1,5 +1,6 @@
-{% extends './main.html' %}
+{% extends '../src/main.html' %}
 {% load static %}
+{% load widget_tweaks %}
 
 {% block title %}
 Имя страницы
@@ -9,23 +10,21 @@
 
 
    <main class="content">
-          {% include './#sourse/main-menu.html' %}
+          {% include '../src/#sourse/main-menu.html' %}
          <div class="authorization__conrainer  container">
 
-            <form id="" class="authorization " action="#">
+            <form method="post" id="" class="authorization " action="{% url 'login' %}">
+               {% csrf_token %}
                <div class="popup__body">
                   <div class="popup__content">
 
                      <div class="authorization__text form__text form__text-left">Вход</div>
                      <div class="authorization__window form__window">
                         <div class="authorization__input-container ">
-                           <input autocomplete="off" type="text" data-value="Электронный адрес или номер телефона"
-                              name="form[]" data-error="" data-value=""
-                              class="input  authorization-input window-input _req">
+                           {{ form.username|add_class:'input  authorization-input window-input _req'|attr:"autocomplete:off"|attr:"type:text"|attr:"data-value:Имя пользователя" }}
                         </div>
                         <div class="authorization__input-container">
-                           <input autocomplete="off" type="" data-value="Пароль" name="form[]" data-error=""
-                              data-value="" class="input   authorization-input window-input _req ">
+                           {{ form.password|add_class:'input  authorization-input window-input _req'|attr:"autocomplete:off"|attr:"data-value:Пароль" }}
                         </div>
 
                         <button href="" type="submit"

@@ -19,7 +19,7 @@
 
             <div data-da="container__serch,0,950" class="top-header__column top-header__column-2">
                <form action="#" class="header__search search-header search">
-                  <div class="search-header__content search-content">
+                  <div class="search-content">
                      <div class="search-header__input search-content__input">
                         <input autocomplete="off" type="text" data-value="Искать товары" name="form[]" data-error=""
                            data-value="" class="input">
@@ -72,11 +72,20 @@
                         </div>
                         <div class="item-header__name">Корзина</div>
                      </a>
-                     <a href="#popup" class="top-header__item item-header popup-link">
+                     {% if user.is_authenticated %}
+                     <a href="{% url 'account' user.id %}" class="top-header__item item-header ">
                         <div class="item-header__icon"> <img src="{% static 'img/img/icons/header/icon-3.png' %}" alt="">
                         </div>
                         <div class="item-header__name">Войти</div>
                      </a>
+                     {% else %}
+                        <a href="{% url 'login' %}" class="top-header__item item-header ">
+                        <div class="item-header__icon"> <img src="{% static 'img/img/icons/header/icon-3.png' %}" alt="">
+                        </div>
+                        <div class="item-header__name">Войти</div>
+                     </a>
+                     {% endif %}
+
                   </div>
 
                </div>
