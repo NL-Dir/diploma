@@ -4220,7 +4220,7 @@ const buttons = document.querySelectorAll('.size-product__item')
 let btn_basket = document.querySelector('.page-product__btn');
 for (let i = 0; i < buttons.length; i++) {
    buttons[i].onclick = function () {
-      [...buttons].forEach((el) => el.classList.remove('_active')); //убираем класс
+      [...buttons].forEach((el) => el.classList.remove('_active'));
       this.classList.add('_active');
       btn_basket.textContent = 'добавить';
    }
