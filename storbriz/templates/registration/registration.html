@@ -1,4 +1,4 @@
-{% extends './main.html' %}
+{% extends '../src/main.html' %}
 {% load static %}
 
 {% block title %}
@@ -10,45 +10,32 @@
 
 
       <main class="content">
-     {% include './#sourse/main-menu.html' %}
+          {% include '../src/#sourse/main-menu.html' %}
          <div class="authorization__conrainer  container">
-            <form action="#" id="" class="authorization ">
+            <form method="post" action="#" id="" class="authorization ">
+               {% csrf_token %}
                <div class="popup__body">
                   <div class="popup__content">
-
+                     {% if user.is_authenticated %}
+                     <div class="authorization__text form__text form__text-left">Изменить данные</div>
+                     {% else %}
                      <div class="authorization__text form__text form__text-left">Регистрация</div>
+                     {% endif %}
                      <div class="authorization__window form__window">
+                        {% for field in form %}
                         <div class="authorization__input-container ">
-                           <input autocomplete="off" type="text" data-value="Имя" name="form[]" data-error=""
-                              data-value="" class="input authorization-input window-input _req">
+                           {{ field }}
                         </div>
-                        <div class="authorization__input-container">
-                           <input autocomplete="off" type="text" data-value="Фамилия" name="form[]" data-error=""
-                              data-value="" class="input form__input  authorization-input window-input _req ">
-                        </div>
-                        <div class="authorization__input-container">
-                           <input autocomplete="off" type="text" data-value="Отчество" name="form[]" data-error=""
-                              data-value="" class="input form__input  authorization-input window-input _req ">
-                        </div>
-                        <div class="authorization__input-container">
-                           <input autocomplete="off" type="" data-value="email" name="form[]" data-error=""
-                              data-value="" class="input form__input  authorization-input window-input _req ">
-                        </div>
-                        <div class="authorization__input-container">
-                           <input autocomplete="off" type="tel" data-value="телефон" name="form[]" data-error=""
-                              data-value="" class="input form__input  authorization-input window-input _req ">
-                        </div>
-                        <div class="authorization__input-container">
-                           <input autocomplete="off" type="date" data-value="Дата рождения" name="form[]" data-error=""
-                              data-value="" class="input form__input  authorization-input window-input _req ">
-                        </div>
-                        <div class="authorization__input-container">
-                           <input autocomplete="off" type="" data-value="Пароль" name="form[]" data-error=""
-                              data-value="" class="input form__input  authorization-input window-input _req ">
-                        </div>
+                        {% endfor %}
+                        {% if user.is_authenticated %}
+                        <button href="" type="submit"
+                           class="authorization__btn btn  entrance__btn form__viewpass">Готово</button>
+                        <a href="{% url 'account' user.id %}" class="authorization__link  ">Назад</a>
+                        {% else %}
                         <button href="" type="submit"
                            class="authorization__btn btn  entrance__btn form__viewpass">Зарегистрироваться</button>
-                        <a href="authorization.html" class="authorization__link  ">Назад</a>
+                        <a href="{% url 'login' %}" class="authorization__link  ">Назад</a>
+                        {% endif%}
                      </div>
                   </div>
                </div>

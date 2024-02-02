@@ -56,7 +56,7 @@
                         размер</button>
                      {% if user.is_authenticated %}
                      {% if good in user.cart.goods.all %}
-                     <a href="{% url 'shop:cart' user.id %}">В корзину</a>
+                     <a href="{% url 'shop:cart' user.cart.id %}">В корзину</a>
                      {% else %}
                      <a href="{% url 'shop:add_to_cart' user.cart.id good.id %}">Добавить</a>
                      {% endif %}

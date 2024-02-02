@@ -15,21 +15,16 @@
                <div class="personal-account__title title">профиль</div>
                <div class="personal-account__content">
                   <div class="personal-account__item item-account">
-                     <div class="item-account__title">ФИО</div>
-                     <div class="item-account__information">Клочкова Ирина Алексеевна</div>
+                     <div class="item-account__title">Имя</div>
+                     <div class="item-account__information">{{ user.first_name }} {{ user.last_name }}</div>
                   </div>
                   <div class="personal-account__item item-account">
                      <div class="item-account__title">Email</div>
-                     <div class="item-account__information">Name@mail.com</div>
-                  </div>
-                  <div class="personal-account__item item-account">
-                     <div class="item-account__title">Телефон
-                     </div>
-                     <div class="item-account__information">+7 999 666 99 66</div>
+                     <div class="item-account__information">{{ user.email }}</div>
                   </div>
                   <div class="personal-account__buttons">
-                     <button href="#popup_4" type="submit"
-                        class="personal-account__button  popup-link">изменить</button>
+                     <a href="{% url 'update' user.id %}"
+                        class="personal-account__button ">изменить</a>
 
                      <form method="post" action="{% url 'logout' %}">
                      {% csrf_token %}

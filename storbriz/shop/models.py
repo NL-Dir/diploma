@@ -1,10 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
-
-
-class Person(models.Model):
-    user = models.OneToOneField(User, related_name='person', on_delete=models.CASCADE)
-    phone_number = models.CharField(max_length=15, verbose_name='телефон', null=True, blank=True)
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 
 class Good(models.Model):
@@ -105,3 +102,9 @@ class CartGood(models.Model):
 
 class Order(models.Model):
     user = models.ForeignKey(User, related_name='order', on_delete=models.CASCADE)
+
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Cart.objects.create(user=instance)
