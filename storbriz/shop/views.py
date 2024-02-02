@@ -16,8 +16,13 @@ class GoodsList(ListView):
     context_object_name = 'goods'
 
     def get_queryset(self):
-        queryset = {'new_goods': Good.objects.order_by('-is_new', '-id')[:12],
-                    'top_goods': Good.objects.filter(is_popular=True)[:12]}
+        queryset = {'new_female': Good.objects.filter(gender=1).order_by('-is_new', '-id')[:12],
+                    'top_female': Good.objects.filter(is_popular=True, gender=1)[:12],
+                    'new_male': Good.objects.filter(gender='0').order_by('-is_new', '-id')[:12],
+                    'top_male': Good.objects.filter(is_popular=True, gender='0')[:12],
+                    'new_children': Good.objects.filter(gender='2').order_by('-is_new', '-id')[:12],
+                    'top_children': Good.objects.filter(is_popular=True, gender='2')[:12],
+                    }
         return queryset
 
 

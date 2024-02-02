@@ -63,7 +63,7 @@
                                  <button type="submit" class="products-block__btn">Смотреть все</button>
                               </div>
                               <div class="products-block__goods">
-   {% for good in goods.new_goods %}
+{% for good in goods.new_female %}
 <a href="{% url 'shop:good' good.id %}" class="card-product">
    {% if good.is_new %}
    <div class="card-product__labels">
@@ -98,9 +98,8 @@
    <div class="card-product__price"> <span class="card-product__count rub">{{ good.price|floatformat:0 }}</span>
    </div>
 <!--   <div class="card-product__delivery-terms">Доставка послезавтра </div>-->
-   {% endfor %}
 </a>
-
+{% endfor %}
                               </div>
 
                            </div>
@@ -145,7 +144,7 @@
                                  <button type="submit" class="products-block__btn">Смотреть все</button>
                               </div>
                               <div class="products-block__goods">
-{% for good in goods.top_goods %}
+{% for good in goods.top_female %}
 <a href="{% url 'shop:good' good.id %}" class="card-product">
    {% if good.is_new %}
    <div class="card-product__labels">
@@ -289,391 +288,44 @@
                                  <button type="submit" class="products-block__btn">Смотреть все</button>
                               </div>
                               <div class="products-block__goods">
-<a href="page-product.html" class="card-product">
+{% for good in goods.new_male %}
+<a href="{% url 'shop:good' good.id %}" class="card-product">
+   {% if good.is_new %}
    <div class="card-product__labels">
       <div class="card-product__label">Новинка</div>
    </div>
+   {% endif %}
    <div class="card-product__slider items-slider items-slider-1">
       <div class="card-product__body items-slider__body-1 _swiper">
          <div class="card-product__slide">
             <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
+               <img src="{{ good.image_1.url }}" alt="#">
             </div>
          </div>
          <div class="card-product__slide">
             <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
+               <img src="{{ good.image_2.url }}" alt="#">
             </div>
          </div>
          <div class="card-product__slide">
             <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
+               <img src="{{ good.image_3.url }}" alt="#">
             </div>
          </div>
          <div class="card-product__slide">
             <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
+               <img src="{{ good.image_4.url }}" alt="#">
             </div>
          </div>
       </div>
    </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
+   <div class="card-product__name">{{ good.name }}</div>
+   <div class="card-product__price"> <span class="card-product__count rub">{{ good.price|floatformat:0 }}</span>
    </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
+<!--   <div class="card-product__delivery-terms">Доставка послезавтра </div>-->
 </a>
+{% endfor %}
+
                               </div>
 
                            </div>
@@ -718,391 +370,43 @@
                                  <button type="submit" class="products-block__btn">Смотреть все</button>
                               </div>
                               <div class="products-block__goods">
-<a href="page-product.html" class="card-product">
+{% for good in goods.top_male %}
+<a href="{% url 'shop:good' good.id %}" class="card-product">
+   {% if good.is_new %}
    <div class="card-product__labels">
       <div class="card-product__label">Новинка</div>
    </div>
+   {% endif %}
    <div class="card-product__slider items-slider items-slider-1">
       <div class="card-product__body items-slider__body-1 _swiper">
          <div class="card-product__slide">
             <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
+               <img src="{{ good.image_1.url }}" alt="#">
             </div>
          </div>
          <div class="card-product__slide">
             <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
+               <img src="{{ good.image_2.url }}" alt="#">
             </div>
          </div>
          <div class="card-product__slide">
             <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
+               <img src="{{ good.image_3.url }}" alt="#">
             </div>
          </div>
          <div class="card-product__slide">
             <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
+               <img src="{{ good.image_4.url }}" alt="#">
             </div>
          </div>
       </div>
    </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
+   <div class="card-product__name">{{ good.name }}</div>
+   <div class="card-product__price"> <span class="card-product__count rub">{{ good.price|floatformat:0 }}</span>
    </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
+<!--   <div class="card-product__delivery-terms">Доставка послезавтра </div>-->
 </a>
+{% endfor %}
                               </div>
 
                            </div>
@@ -1212,391 +516,45 @@
                                  <button type="submit" class="products-block__btn">Смотреть все</button>
                               </div>
                               <div class="products-block__goods">
-<a href="page-product.html" class="card-product">
+{% for good in goods.new_children %}
+<a href="{% url 'shop:good' good.id %}" class="card-product">
+   {% if good.is_new %}
    <div class="card-product__labels">
       <div class="card-product__label">Новинка</div>
    </div>
+   {% endif %}
    <div class="card-product__slider items-slider items-slider-1">
       <div class="card-product__body items-slider__body-1 _swiper">
          <div class="card-product__slide">
             <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
+               <img src="{{ good.image_1.url }}" alt="#">
             </div>
          </div>
          <div class="card-product__slide">
             <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
+               <img src="{{ good.image_2.url }}" alt="#">
             </div>
          </div>
          <div class="card-product__slide">
             <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
+               <img src="{{ good.image_3.url }}" alt="#">
             </div>
          </div>
          <div class="card-product__slide">
             <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
+               <img src="{{ good.image_4.url }}" alt="#">
             </div>
          </div>
       </div>
    </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
+   <div class="card-product__name">{{ good.name }}</div>
+   <div class="card-product__price"> <span class="card-product__count rub">{{ good.price|floatformat:0 }}</span>
    </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
+<!--   <div class="card-product__delivery-terms">Доставка послезавтра </div>-->
 </a>
+{% endfor %}
+
+
                               </div>
 
                            </div>
@@ -1641,391 +599,43 @@
                                  <button type="submit" class="products-block__btn">Смотреть все</button>
                               </div>
                               <div class="products-block__goods">
-<a href="page-product.html" class="card-product">
+{% for good in goods.top_children %}
+<a href="{% url 'shop:good' good.id %}" class="card-product">
+   {% if good.is_new %}
    <div class="card-product__labels">
       <div class="card-product__label">Новинка</div>
    </div>
+   {% endif %}
    <div class="card-product__slider items-slider items-slider-1">
       <div class="card-product__body items-slider__body-1 _swiper">
          <div class="card-product__slide">
             <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
+               <img src="{{ good.image_1.url }}" alt="#">
             </div>
          </div>
          <div class="card-product__slide">
             <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
+               <img src="{{ good.image_2.url }}" alt="#">
             </div>
          </div>
          <div class="card-product__slide">
             <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
+               <img src="{{ good.image_3.url }}" alt="#">
             </div>
          </div>
          <div class="card-product__slide">
             <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
+               <img src="{{ good.image_4.url }}" alt="#">
             </div>
          </div>
       </div>
    </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
+   <div class="card-product__name">{{ good.name }}</div>
+   <div class="card-product__price"> <span class="card-product__count rub">{{ good.price|floatformat:0 }}</span>
    </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
-</a><a href="page-product.html" class="card-product">
-   <div class="card-product__labels">
-      <div class="card-product__label">Новинка</div>
-   </div>
-   <div class="card-product__slider items-slider items-slider-1">
-      <div class="card-product__body items-slider__body-1 _swiper">
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-         <div class="card-product__slide">
-            <div class="card-product__image  ibg">
-               <img src="{% static 'img/img/product.jpg' %}" alt="#">
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="card-product__name">Футболка хлопковая</div>
-   <div class="card-product__price"> <span class="card-product__count rub">2999</span>
-   </div>
-   <div class="card-product__delivery-terms">Доставка послезавтра </div>
+<!--   <div class="card-product__delivery-terms">Доставка послезавтра </div>-->
 </a>
+{% endfor %}
                               </div>
 
                            </div>
