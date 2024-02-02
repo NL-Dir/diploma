@@ -21,10 +21,10 @@
                      <div class="authorization__text form__text form__text-left">Вход</div>
                      <div class="authorization__window form__window">
                         <div class="authorization__input-container ">
-                           {{ form.username|add_class:'input  authorization-input window-input _req'|attr:"autocomplete:off"|attr:"type:text"|attr:"data-value:Имя пользователя" }}
+                           {{ form.username|add_class:'input  authorization-input window-input _req'|attr:"autocomplete:off"|attr:"type:text"|attr:"placeholder:Имя пользователя" }}
                         </div>
                         <div class="authorization__input-container">
-                           {{ form.password|add_class:'input  authorization-input window-input _req'|attr:"autocomplete:off"|attr:"data-value:Пароль" }}
+                           {{ form.password|add_class:'input  authorization-input window-input _req'|attr:"autocomplete:off"|attr:"placeholder:Пароль" }}
                         </div>
 
                         <button href="" type="submit"
