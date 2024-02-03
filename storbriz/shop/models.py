@@ -101,7 +101,21 @@ class CartGood(models.Model):
 
 
 class Order(models.Model):
-    user = models.ForeignKey(User, related_name='order', on_delete=models.CASCADE)
+    TIME_CHOICES = (
+        (1, '9:00 - 21:00'),
+        (1, '9:00 - 15:00'),
+        (1, '15:00 - 21:00'),
+        (1, '9:00 - 13:00'),
+        (1, '13:00 - 17:00'),
+        (1, '17:00 - 21:00'),
+    )
+    user = models.ForeignKey(User, related_name='orders', on_delete=models.CASCADE)
+    street = models.CharField(max_length=255, verbose_name='улица', null=True, blank=True)
+    building = models.CharField(max_length=15, verbose_name='дом', null=True, blank=True)
+    flat = models.CharField(max_length=15, verbose_name='квартира', null=True, blank=True)
+    date = models.DateField(verbose_name='дата доставки', null=True, blank=True)
+    time_period = models.IntegerField(verbose_name='интервал доставки', null=True, blank=True, choices=TIME_CHOICES)
+    total = models.FloatField(verbose_name='сумма', null=True, blank=True)
 
 
 @receiver(post_save, sender=User)

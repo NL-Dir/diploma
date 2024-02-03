@@ -1,6 +1,9 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.forms import ModelForm
+from django import forms
+
+from .models import Order
 
 
 class UserRegisterForm(UserCreationForm):
@@ -47,3 +50,30 @@ class UserUpdateForm(ModelForm):
             self.fields[field].widget.attrs.update(
                 {"class": "input form__input  authorization-input window-input _req ",
                  "autocomplete": "off"})
+
+
+TIME_CHOICES = (
+    (1, '9:00 - 21:00'),
+    (1, '9:00 - 15:00'),
+    (1, '15:00 - 21:00'),
+    (1, '9:00 - 13:00'),
+    (1, '13:00 - 17:00'),
+    (1, '17:00 - 21:00'),
+)
+
+
+class OrderCreateForm(ModelForm):
+    class Meta:
+        model = Order
+        fields = '__all__'
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields['street'].widget.attrs.update({"placeholder": 'Улица'})
+            self.fields['building'].widget.attrs.update({"placeholder": 'дом'})
+            self.fields['flat'].widget.attrs.update({"placeholder": 'квартира'})
+            self.fields['time_period'] = forms.ChoiceField(choices=TIME_CHOICES, widget=forms.RadioSelect())
+            self.fields['total'].widget = forms.HiddenInput()
+            self.fields[field].widget.attrs.update({"class": "form-delivery__input input window-input _req",
+                                                    "autocomplete": "off"})

@@ -6,7 +6,7 @@ from django.forms import modelformset_factory
 from django.urls import reverse, reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
 
-from .forms import UserRegisterForm, UserUpdateForm
+from .forms import UserRegisterForm, UserUpdateForm, OrderCreateForm
 from .models import Good, Cart
 
 
@@ -77,3 +77,9 @@ class UserUpdateView(UpdateView):
 
     def get_success_url(self):
         return reverse_lazy('account', kwargs={'pk': self.object.id})
+
+
+class OrderCreateView(CreateView):
+    form_class = OrderCreateForm
+    success_url = reverse_lazy('home')
+    template_name = 'src/page-delivery.html'
