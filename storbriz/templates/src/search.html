@@ -1,0 +1,714 @@
+{% extends './main.html' %}
+{% load static %}
+
+{% block title %}
+Поиск товара
+{% endblock title %}
+
+{% block content %}
+
+      <main class="content">
+         <div class="header__bottom container">
+            <ul class="header__bottom-menu">
+               <li><a class="header__bottom-link header__bottom-link-active _tabs-item _active" href="#">Женское</a>
+               </li>
+               <li><a class="header__bottom-link _tabs-item" href="#">Мужское</a></li>
+               <li><a class="header__bottom-link _tabs-item" href="#">Детское</a></li>
+            </ul>
+
+         </div>
+
+
+ {% include './#sourse/main-menu.html' %}
+
+       <div class="content-item  _tabs-block _active">
+            <div class="page">
+               <div class="page__content">
+
+
+                  <div class="page__products products-page">
+                     <div class="products-page__content ">
+
+
+<!--                     </div>-->
+<!--                     <div class="page__preview preview-page">-->
+<!--                        <div class="preview-page__container container">-->
+<!--                           <div class="preview-page__information">-->
+<!--                              <div class="preview-page__s"><img src="{% static 'img/img/s.png' %}" alt=""></div>-->
+<!--                              <div class="preview-page__information-content">-->
+<!--                                 <div class="preview-page__subtitle">-->
+<!--                                    test-->
+<!--                                 </div>-->
+<!--                                 <div class="preview-page__text">Текст слоган про оптовый маркетплейс-->
+<!--                                    в две строки</div>-->
+<!--                                 <div class="preview-page__title">Зарегистрируйтесь уже сейчас</div>-->
+<!--                                 <button type="submit"-->
+<!--                                    class="preview-page__btn btn  btn-input">Зарегистрироваться</button>-->
+
+<!--                              </div>-->
+
+<!--                           </div>-->
+<!--                           <div class="preview-page__picture">-->
+<!--                              <div class="preview-page__image "><img src="{% static 'img/img/preview.png' %}" alt=""></div>-->
+<!--                           </div>-->
+
+<!--                        </div>-->
+
+<!--                     </div>-->
+                     <div class="page__products products-block">
+                        <div class="products-block__container container">
+                           <div class="products-block__content">
+                              <div class="products-block__top">
+                                 <div class="products-block__title title">Новинки</div>
+                                 <button type="submit" class="products-block__btn">Смотреть все</button>
+                              </div>
+                              <div class="products-block__goods">
+{% for good in goods.new_female %}
+<a href="{% url 'shop:good' good.id %}" class="card-product">
+   {% if good.is_new %}
+   <div class="card-product__labels">
+      <div class="card-product__label">Новинка</div>
+   </div>
+   {% endif %}
+   <div class="card-product__slider items-slider items-slider-1">
+      <div class="card-product__body items-slider__body-1 _swiper">
+         <div class="card-product__slide">
+            <div class="card-product__image  ibg">
+               <img src="{{ good.image_1.url }}" alt="#">
+            </div>
+         </div>
+         <div class="card-product__slide">
+            <div class="card-product__image  ibg">
+               <img src="{{ good.image_2.url }}" alt="#">
+            </div>
+         </div>
+         <div class="card-product__slide">
+            <div class="card-product__image  ibg">
+               <img src="{{ good.image_3.url }}" alt="#">
+            </div>
+         </div>
+         <div class="card-product__slide">
+            <div class="card-product__image  ibg">
+               <img src="{{ good.image_4.url }}" alt="#">
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="card-product__name">{{ good.name }}</div>
+   <div class="card-product__price"> <span class="card-product__count rub">{{ good.price|floatformat:0 }}</span>
+   </div>
+<!--   <div class="card-product__delivery-terms">Доставка послезавтра </div>-->
+</a>
+{% endfor %}
+<!--                              </div>-->
+
+<!--                           </div>-->
+<!--                        </div>-->
+<!--                     </div>-->
+<!--                     <div class="page__banner banner-block">-->
+<!--                        <div class="banner-block__container container">-->
+<!--                           <div class="banner-block__slider  mainslider">-->
+<!--                              <div class="banner-block__body mainslider__body _swiper">-->
+<!--                                 <div class="banner-block__slide mainslider__slide">-->
+<!--                                    <div class="banner-block__image mainslider__image ibg">-->
+
+<!--                                    </div>-->
+<!--                                 </div>-->
+<!--                                 <div class="banner-block__slide mainslider__slide">-->
+<!--                                    <div class="banner-block__image mainslider__image ibg">-->
+
+<!--                                    </div>-->
+<!--                                 </div>-->
+<!--                                 <div class="banner-block__slide mainslider__slide">-->
+<!--                                    <div class="banner-block__image mainslider__image ibg">-->
+
+<!--                                    </div>-->
+<!--                                 </div>-->
+<!--                                 <div class="banner-block__slide mainslider__slide">-->
+<!--                                    <div class="banner-block__image mainslider__image ibg">-->
+
+<!--                                    </div>-->
+<!--                                 </div>-->
+<!--                              </div>-->
+<!--                              <div class="mainslider__dotts"></div>-->
+<!--                              <div class="swiper-button-next banner-block-next"></div>-->
+<!--                              <div class="swiper-button-prev banner-block-prev"></div>-->
+<!--                           </div>-->
+<!--                        </div>-->
+<!--                     </div>-->
+<!--                     <div class="page__products products-block">-->
+<!--                        <div class="products-block__container container">-->
+<!--                           <div class="products-block__content">-->
+<!--                              <div class="products-block__top">-->
+<!--                                 <div class="products-block__title title">Популярные товары</div>-->
+<!--                                 <button type="submit" class="products-block__btn">Смотреть все</button>-->
+<!--                              </div>-->
+<!--                              <div class="products-block__goods">-->
+<!--{% for good in goods.top_female %}-->
+<!--<a href="{% url 'shop:good' good.id %}" class="card-product">-->
+<!--   {% if good.is_new %}-->
+<!--   <div class="card-product__labels">-->
+<!--      <div class="card-product__label">Новинка</div>-->
+<!--   </div>-->
+<!--   {% endif %}-->
+<!--   <div class="card-product__slider items-slider items-slider-1">-->
+<!--      <div class="card-product__body items-slider__body-1 _swiper">-->
+<!--         <div class="card-product__slide">-->
+<!--            <div class="card-product__image  ibg">-->
+<!--               <img src="{{ good.image_1.url }}" alt="#">-->
+<!--            </div>-->
+<!--         </div>-->
+<!--         <div class="card-product__slide">-->
+<!--            <div class="card-product__image  ibg">-->
+<!--               <img src="{{ good.image_2.url }}" alt="#">-->
+<!--            </div>-->
+<!--         </div>-->
+<!--         <div class="card-product__slide">-->
+<!--            <div class="card-product__image  ibg">-->
+<!--               <img src="{{ good.image_3.url }}" alt="#">-->
+<!--            </div>-->
+<!--         </div>-->
+<!--         <div class="card-product__slide">-->
+<!--            <div class="card-product__image  ibg">-->
+<!--               <img src="{{ good.image_4.url }}" alt="#">-->
+<!--            </div>-->
+<!--         </div>-->
+<!--      </div>-->
+<!--   </div>-->
+<!--   <div class="card-product__name">{{ good.name }}</div>-->
+<!--   <div class="card-product__price"> <span class="card-product__count rub">{{ good.price|floatformat:0 }}</span>-->
+<!--   </div>-->
+<!--&lt;!&ndash;   <div class="card-product__delivery-terms">Доставка послезавтра </div>&ndash;&gt;-->
+<!--</a>-->
+<!--{% endfor %}-->
+<!--                              </div>-->
+
+<!--                           </div>-->
+<!--                        </div>-->
+<!--                     </div>-->
+
+
+<!--                     &lt;!&ndash;<form action="#" class="checkout container">-->
+<!--      -->
+<!--                        <div class="checkout__title title-checkout">оформление заказа</div>-->
+<!--                        <div class="checkout__content content-checkout _tabs">-->
+<!--                           <nav class="content-checkout__nav">-->
+<!--                              <div class="content-checkout__item _tabs-item _active"><span> быстрый заказ</span></div>-->
+<!--                              <div class="content-checkout__item _tabs-item"><span>доставка курьером</span> </div>-->
+<!--                              <div class="content-checkout__item _tabs-item"><span>доставка в регионы</span> </div>-->
+<!--                           </nav>-->
+<!--                           <div class="content-checkout__body">-->
+<!--                              <div class="content-checkout__block  _tabs-block _active">-->
+<!--                                 <div class="content-checkout__form form-checkout">-->
+<!--                                    <div class="form-checkout__column">-->
+<!--                                       <div class="form-checkout__line">-->
+<!--                                          <div class="form-checkout__label">имя:&nbsp; <span>*</span></div>-->
+<!--                                          <div class="form-checkout__input">-->
+<!--                                             <input autocomplete="off" type="text" data-value="" name="form[]"-->
+<!--                                                data-error="ошибка" data-value="" class="input _req">-->
+<!--                                          </div>-->
+<!--                                       </div>-->
+<!--                                       <div class="form-checkout__line">-->
+<!--                                          <div class="form-checkout__label">тел:&nbsp; <span>*</span></div>-->
+<!--                                          <div class="form-checkout__input">-->
+<!--                                             <input autocomplete="off" type="text" data-value="" name="form[]"-->
+<!--                                                data-error="ошибка" data-value="" class="input _req">-->
+<!--                                          </div>-->
+<!--                                       </div>-->
+<!--                                       <div class="form-checkout__line">-->
+<!--                                          <div class="form-checkout__label">почта:</div>-->
+<!--                                          <div class="form-checkout__input">-->
+<!--                                             <input autocomplete="off" type="text" data-value="" name="form[]"-->
+<!--                                                data-error="ошибка" data-value="" class="input">-->
+<!--                                          </div>-->
+<!--                                       </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="form-checkout__column">-->
+<!--                                       <div class="form-checkout__text">-->
+<!--                                          <p><span>*</span>Поле, обязательные для заполнения</p>-->
+<!--                                          <p><span>*</span>Поле, обязательные для заполнения</p>-->
+<!--                                          <p><span>*</span>Поле, обязательные для заполнения</p>-->
+<!--                                       </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="form-checkout__column"></div>-->
+<!--                                 </div>-->
+<!--                              </div>-->
+<!--                              <div class="content-checkout__block  _tabs-block "></div>-->
+<!--                              <div class="content-checkout__block  _tabs-block "></div>-->
+<!--                           </div>-->
+<!--                        </div>-->
+<!--      -->
+<!--                        <div class="checkout__order order-checkout"></div>-->
+<!--                        <button type="submit" class="form__btn btn order-checkout__btn"> оформить</button>-->
+<!--                        </а>-->
+<!--                     </form>&ndash;&gt;-->
+<!--                  </div>-->
+<!--               </div>-->
+
+
+<!--            </div>-->
+<!--         </div>-->
+<!--         <div class="content-item _tabs-block">-->
+<!--            <div class="page">-->
+<!--               <div class="page__content">-->
+<!--                  <div class="page__products products-page">-->
+<!--                     <div class="products-page__content ">-->
+
+
+<!--                     </div>-->
+<!--                     <div class="page__preview preview-page">-->
+<!--                        <div class="preview-page__container container">-->
+<!--                           <div class="preview-page__information">-->
+<!--                              <div class="preview-page__s"><img src="{% static 'img/img/s.png' %}" alt=""></div>-->
+<!--                              <div class="preview-page__information-content">-->
+<!--                                 <div class="preview-page__subtitle">-->
+<!--                                    Заголовок 2-->
+<!--                                 </div>-->
+<!--                                 <div class="preview-page__text">Текст слоган про оптовый маркетплейс-->
+<!--                                    в две строки</div>-->
+<!--                                 <div class="preview-page__title">Зарегистрируйтесь уже сейчас</div>-->
+<!--                                 <button type="submit"-->
+<!--                                    class="preview-page__btn btn  btn-input">Зарегистрироваться</button>-->
+
+<!--                              </div>-->
+
+<!--                           </div>-->
+<!--                           <div class="preview-page__picture">-->
+<!--                              <div class="preview-page__image "><img src="{% static 'img/img/preview.png' %}" alt=""></div>-->
+<!--                           </div>-->
+
+<!--                        </div>-->
+
+<!--                     </div>-->
+<!--                     <div class="page__products products-block">-->
+<!--                        <div class="products-block__container container">-->
+<!--                           <div class="products-block__content">-->
+<!--                              <div class="products-block__top">-->
+<!--                                 <div class="products-block__title title">Новинки</div>-->
+<!--                                 <button type="submit" class="products-block__btn">Смотреть все</button>-->
+<!--                              </div>-->
+<!--                              <div class="products-block__goods">-->
+<!--{% for good in goods.new_male %}-->
+<!--<a href="{% url 'shop:good' good.id %}" class="card-product">-->
+<!--   {% if good.is_new %}-->
+<!--   <div class="card-product__labels">-->
+<!--      <div class="card-product__label">Новинка</div>-->
+<!--   </div>-->
+<!--   {% endif %}-->
+<!--   <div class="card-product__slider items-slider items-slider-1">-->
+<!--      <div class="card-product__body items-slider__body-1 _swiper">-->
+<!--         <div class="card-product__slide">-->
+<!--            <div class="card-product__image  ibg">-->
+<!--               <img src="{{ good.image_1.url }}" alt="#">-->
+<!--            </div>-->
+<!--         </div>-->
+<!--         <div class="card-product__slide">-->
+<!--            <div class="card-product__image  ibg">-->
+<!--               <img src="{{ good.image_2.url }}" alt="#">-->
+<!--            </div>-->
+<!--         </div>-->
+<!--         <div class="card-product__slide">-->
+<!--            <div class="card-product__image  ibg">-->
+<!--               <img src="{{ good.image_3.url }}" alt="#">-->
+<!--            </div>-->
+<!--         </div>-->
+<!--         <div class="card-product__slide">-->
+<!--            <div class="card-product__image  ibg">-->
+<!--               <img src="{{ good.image_4.url }}" alt="#">-->
+<!--            </div>-->
+<!--         </div>-->
+<!--      </div>-->
+<!--   </div>-->
+<!--   <div class="card-product__name">{{ good.name }}</div>-->
+<!--   <div class="card-product__price"> <span class="card-product__count rub">{{ good.price|floatformat:0 }}</span>-->
+<!--   </div>-->
+<!--&lt;!&ndash;   <div class="card-product__delivery-terms">Доставка послезавтра </div>&ndash;&gt;-->
+<!--</a>-->
+<!--{% endfor %}-->
+
+<!--                              </div>-->
+
+<!--                           </div>-->
+<!--                        </div>-->
+<!--                     </div>-->
+<!--                     <div class="page__banner banner-block">-->
+<!--                        <div class="banner-block__container container">-->
+<!--                           <div class="banner-block__slider  mainslider">-->
+<!--                              <div class="banner-block__body mainslider__body _swiper">-->
+<!--                                 <div class="banner-block__slide mainslider__slide">-->
+<!--                                    <div class="banner-block__image mainslider__image ibg">-->
+
+<!--                                    </div>-->
+<!--                                 </div>-->
+<!--                                 <div class="banner-block__slide mainslider__slide">-->
+<!--                                    <div class="banner-block__image mainslider__image ibg">-->
+
+<!--                                    </div>-->
+<!--                                 </div>-->
+<!--                                 <div class="banner-block__slide mainslider__slide">-->
+<!--                                    <div class="banner-block__image mainslider__image ibg">-->
+
+<!--                                    </div>-->
+<!--                                 </div>-->
+<!--                                 <div class="banner-block__slide mainslider__slide">-->
+<!--                                    <div class="banner-block__image mainslider__image ibg">-->
+
+<!--                                    </div>-->
+<!--                                 </div>-->
+<!--                              </div>-->
+<!--                              <div class="mainslider__dotts"></div>-->
+<!--                              <div class="swiper-button-next banner-block-next"></div>-->
+<!--                              <div class="swiper-button-prev banner-block-prev"></div>-->
+<!--                           </div>-->
+<!--                        </div>-->
+<!--                     </div>-->
+<!--                     <div class="page__products products-block">-->
+<!--                        <div class="products-block__container container">-->
+<!--                           <div class="products-block__content">-->
+<!--                              <div class="products-block__top">-->
+<!--                                 <div class="products-block__title title">Популярные товары</div>-->
+<!--                                 <button type="submit" class="products-block__btn">Смотреть все</button>-->
+<!--                              </div>-->
+<!--                              <div class="products-block__goods">-->
+<!--{% for good in goods.top_male %}-->
+<!--<a href="{% url 'shop:good' good.id %}" class="card-product">-->
+<!--   {% if good.is_new %}-->
+<!--   <div class="card-product__labels">-->
+<!--      <div class="card-product__label">Новинка</div>-->
+<!--   </div>-->
+<!--   {% endif %}-->
+<!--   <div class="card-product__slider items-slider items-slider-1">-->
+<!--      <div class="card-product__body items-slider__body-1 _swiper">-->
+<!--         <div class="card-product__slide">-->
+<!--            <div class="card-product__image  ibg">-->
+<!--               <img src="{{ good.image_1.url }}" alt="#">-->
+<!--            </div>-->
+<!--         </div>-->
+<!--         <div class="card-product__slide">-->
+<!--            <div class="card-product__image  ibg">-->
+<!--               <img src="{{ good.image_2.url }}" alt="#">-->
+<!--            </div>-->
+<!--         </div>-->
+<!--         <div class="card-product__slide">-->
+<!--            <div class="card-product__image  ibg">-->
+<!--               <img src="{{ good.image_3.url }}" alt="#">-->
+<!--            </div>-->
+<!--         </div>-->
+<!--         <div class="card-product__slide">-->
+<!--            <div class="card-product__image  ibg">-->
+<!--               <img src="{{ good.image_4.url }}" alt="#">-->
+<!--            </div>-->
+<!--         </div>-->
+<!--      </div>-->
+<!--   </div>-->
+<!--   <div class="card-product__name">{{ good.name }}</div>-->
+<!--   <div class="card-product__price"> <span class="card-product__count rub">{{ good.price|floatformat:0 }}</span>-->
+<!--   </div>-->
+<!--&lt;!&ndash;   <div class="card-product__delivery-terms">Доставка послезавтра </div>&ndash;&gt;-->
+<!--</a>-->
+<!--{% endfor %}-->
+<!--                              </div>-->
+
+<!--                           </div>-->
+<!--                        </div>-->
+<!--                     </div>-->
+
+
+<!--                     &lt;!&ndash;<form action="#" class="checkout container">-->
+<!--      -->
+<!--                        <div class="checkout__title title-checkout">оформление заказа</div>-->
+<!--                        <div class="checkout__content content-checkout _tabs">-->
+<!--                           <nav class="content-checkout__nav">-->
+<!--                              <div class="content-checkout__item _tabs-item _active"><span> быстрый заказ</span></div>-->
+<!--                              <div class="content-checkout__item _tabs-item"><span>доставка курьером</span> </div>-->
+<!--                              <div class="content-checkout__item _tabs-item"><span>доставка в регионы</span> </div>-->
+<!--                           </nav>-->
+<!--                           <div class="content-checkout__body">-->
+<!--                              <div class="content-checkout__block  _tabs-block _active">-->
+<!--                                 <div class="content-checkout__form form-checkout">-->
+<!--                                    <div class="form-checkout__column">-->
+<!--                                       <div class="form-checkout__line">-->
+<!--                                          <div class="form-checkout__label">имя:&nbsp; <span>*</span></div>-->
+<!--                                          <div class="form-checkout__input">-->
+<!--                                             <input autocomplete="off" type="text" data-value="" name="form[]"-->
+<!--                                                data-error="ошибка" data-value="" class="input _req">-->
+<!--                                          </div>-->
+<!--                                       </div>-->
+<!--                                       <div class="form-checkout__line">-->
+<!--                                          <div class="form-checkout__label">тел:&nbsp; <span>*</span></div>-->
+<!--                                          <div class="form-checkout__input">-->
+<!--                                             <input autocomplete="off" type="text" data-value="" name="form[]"-->
+<!--                                                data-error="ошибка" data-value="" class="input _req">-->
+<!--                                          </div>-->
+<!--                                       </div>-->
+<!--                                       <div class="form-checkout__line">-->
+<!--                                          <div class="form-checkout__label">почта:</div>-->
+<!--                                          <div class="form-checkout__input">-->
+<!--                                             <input autocomplete="off" type="text" data-value="" name="form[]"-->
+<!--                                                data-error="ошибка" data-value="" class="input">-->
+<!--                                          </div>-->
+<!--                                       </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="form-checkout__column">-->
+<!--                                       <div class="form-checkout__text">-->
+<!--                                          <p><span>*</span>Поле, обязательные для заполнения</p>-->
+<!--                                          <p><span>*</span>Поле, обязательные для заполнения</p>-->
+<!--                                          <p><span>*</span>Поле, обязательные для заполнения</p>-->
+<!--                                       </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="form-checkout__column"></div>-->
+<!--                                 </div>-->
+<!--                              </div>-->
+<!--                              <div class="content-checkout__block  _tabs-block "></div>-->
+<!--                              <div class="content-checkout__block  _tabs-block "></div>-->
+<!--                           </div>-->
+<!--                        </div>-->
+<!--      -->
+<!--                        <div class="checkout__order order-checkout"></div>-->
+<!--                        <button type="submit" class="form__btn btn order-checkout__btn"> оформить</button>-->
+<!--                        </а>-->
+<!--                     </form>&ndash;&gt;-->
+<!--                  </div>-->
+<!--               </div>-->
+
+
+<!--            </div>-->
+<!--         </div>-->
+<!--         <div class="content-item _tabs-block">-->
+<!--            <div class="page">-->
+<!--               <div class="page__content">-->
+
+
+<!--                  <div class="page__products products-page">-->
+<!--                     <div class="products-page__content ">-->
+
+
+<!--                     </div>-->
+<!--                     <div class="page__preview preview-page">-->
+<!--                        <div class="preview-page__container container">-->
+<!--                           <div class="preview-page__information">-->
+<!--                              <div class="preview-page__s"><img src="{% static 'img/img/s.png' %}" alt=""></div>-->
+<!--                              <div class="preview-page__information-content">-->
+<!--                                 <div class="preview-page__subtitle">-->
+<!--                                    Заголовок 3-->
+<!--                                 </div>-->
+<!--                                 <div class="preview-page__text">Текст слоган про оптовый маркетплейс-->
+<!--                                    в две строки</div>-->
+<!--                                 <div class="preview-page__title">Зарегистрируйтесь уже сейчас</div>-->
+<!--                                 <button type="submit"-->
+<!--                                    class="preview-page__btn btn  btn-input">Зарегистрироваться</button>-->
+
+<!--                              </div>-->
+
+<!--                           </div>-->
+<!--                           <div class="preview-page__picture">-->
+<!--                              <div class="preview-page__image "><img src="{% static 'img/img/preview.png' %}" alt=""></div>-->
+<!--                           </div>-->
+
+<!--                        </div>-->
+
+<!--                     </div>-->
+<!--                     <div class="page__products products-block">-->
+<!--                        <div class="products-block__container container">-->
+<!--                           <div class="products-block__content">-->
+<!--                              <div class="products-block__top">-->
+<!--                                 <div class="products-block__title title">Новинки</div>-->
+<!--                                 <button type="submit" class="products-block__btn">Смотреть все</button>-->
+<!--                              </div>-->
+<!--                              <div class="products-block__goods">-->
+<!--{% for good in goods.new_children %}-->
+<!--<a href="{% url 'shop:good' good.id %}" class="card-product">-->
+<!--   {% if good.is_new %}-->
+<!--   <div class="card-product__labels">-->
+<!--      <div class="card-product__label">Новинка</div>-->
+<!--   </div>-->
+<!--   {% endif %}-->
+<!--   <div class="card-product__slider items-slider items-slider-1">-->
+<!--      <div class="card-product__body items-slider__body-1 _swiper">-->
+<!--         <div class="card-product__slide">-->
+<!--            <div class="card-product__image  ibg">-->
+<!--               <img src="{{ good.image_1.url }}" alt="#">-->
+<!--            </div>-->
+<!--         </div>-->
+<!--         <div class="card-product__slide">-->
+<!--            <div class="card-product__image  ibg">-->
+<!--               <img src="{{ good.image_2.url }}" alt="#">-->
+<!--            </div>-->
+<!--         </div>-->
+<!--         <div class="card-product__slide">-->
+<!--            <div class="card-product__image  ibg">-->
+<!--               <img src="{{ good.image_3.url }}" alt="#">-->
+<!--            </div>-->
+<!--         </div>-->
+<!--         <div class="card-product__slide">-->
+<!--            <div class="card-product__image  ibg">-->
+<!--               <img src="{{ good.image_4.url }}" alt="#">-->
+<!--            </div>-->
+<!--         </div>-->
+<!--      </div>-->
+<!--   </div>-->
+<!--   <div class="card-product__name">{{ good.name }}</div>-->
+<!--   <div class="card-product__price"> <span class="card-product__count rub">{{ good.price|floatformat:0 }}</span>-->
+<!--   </div>-->
+<!--&lt;!&ndash;   <div class="card-product__delivery-terms">Доставка послезавтра </div>&ndash;&gt;-->
+<!--</a>-->
+<!--{% endfor %}-->
+
+
+<!--                              </div>-->
+
+<!--                           </div>-->
+<!--                        </div>-->
+<!--                     </div>-->
+<!--                     <div class="page__banner banner-block">-->
+<!--                        <div class="banner-block__container container">-->
+<!--                           <div class="banner-block__slider  mainslider">-->
+<!--                              <div class="banner-block__body mainslider__body _swiper">-->
+<!--                                 <div class="banner-block__slide mainslider__slide">-->
+<!--                                    <div class="banner-block__image mainslider__image ibg">-->
+
+<!--                                    </div>-->
+<!--                                 </div>-->
+<!--                                 <div class="banner-block__slide mainslider__slide">-->
+<!--                                    <div class="banner-block__image mainslider__image ibg">-->
+
+<!--                                    </div>-->
+<!--                                 </div>-->
+<!--                                 <div class="banner-block__slide mainslider__slide">-->
+<!--                                    <div class="banner-block__image mainslider__image ibg">-->
+
+<!--                                    </div>-->
+<!--                                 </div>-->
+<!--                                 <div class="banner-block__slide mainslider__slide">-->
+<!--                                    <div class="banner-block__image mainslider__image ibg">-->
+
+<!--                                    </div>-->
+<!--                                 </div>-->
+<!--                              </div>-->
+<!--                              <div class="mainslider__dotts"></div>-->
+<!--                              <div class="swiper-button-next banner-block-next"></div>-->
+<!--                              <div class="swiper-button-prev banner-block-prev"></div>-->
+<!--                           </div>-->
+<!--                        </div>-->
+<!--                     </div>-->
+<!--                     <div class="page__products products-block">-->
+<!--                        <div class="products-block__container container">-->
+<!--                           <div class="products-block__content">-->
+<!--                              <div class="products-block__top">-->
+<!--                                 <div class="products-block__title title">Популярные товары</div>-->
+<!--                                 <button type="submit" class="products-block__btn">Смотреть все</button>-->
+<!--                              </div>-->
+<!--                              <div class="products-block__goods">-->
+<!--{% for good in goods.top_children %}-->
+<!--<a href="{% url 'shop:good' good.id %}" class="card-product">-->
+<!--   {% if good.is_new %}-->
+<!--   <div class="card-product__labels">-->
+<!--      <div class="card-product__label">Новинка</div>-->
+<!--   </div>-->
+<!--   {% endif %}-->
+<!--   <div class="card-product__slider items-slider items-slider-1">-->
+<!--      <div class="card-product__body items-slider__body-1 _swiper">-->
+<!--         <div class="card-product__slide">-->
+<!--            <div class="card-product__image  ibg">-->
+<!--               <img src="{{ good.image_1.url }}" alt="#">-->
+<!--            </div>-->
+<!--         </div>-->
+<!--         <div class="card-product__slide">-->
+<!--            <div class="card-product__image  ibg">-->
+<!--               <img src="{{ good.image_2.url }}" alt="#">-->
+<!--            </div>-->
+<!--         </div>-->
+<!--         <div class="card-product__slide">-->
+<!--            <div class="card-product__image  ibg">-->
+<!--               <img src="{{ good.image_3.url }}" alt="#">-->
+<!--            </div>-->
+<!--         </div>-->
+<!--         <div class="card-product__slide">-->
+<!--            <div class="card-product__image  ibg">-->
+<!--               <img src="{{ good.image_4.url }}" alt="#">-->
+<!--            </div>-->
+<!--         </div>-->
+<!--      </div>-->
+<!--   </div>-->
+<!--   <div class="card-product__name">{{ good.name }}</div>-->
+<!--   <div class="card-product__price"> <span class="card-product__count rub">{{ good.price|floatformat:0 }}</span>-->
+<!--   </div>-->
+<!--&lt;!&ndash;   <div class="card-product__delivery-terms">Доставка послезавтра </div>&ndash;&gt;-->
+<!--</a>-->
+<!--{% endfor %}-->
+<!--                              </div>-->
+
+<!--                           </div>-->
+<!--                        </div>-->
+<!--                     </div>-->
+
+
+<!--                     &lt;!&ndash;<form action="#" class="checkout container">-->
+<!--      -->
+<!--                        <div class="checkout__title title-checkout">оформление заказа</div>-->
+<!--                        <div class="checkout__content content-checkout _tabs">-->
+<!--                           <nav class="content-checkout__nav">-->
+<!--                              <div class="content-checkout__item _tabs-item _active"><span> быстрый заказ</span></div>-->
+<!--                              <div class="content-checkout__item _tabs-item"><span>доставка курьером</span> </div>-->
+<!--                              <div class="content-checkout__item _tabs-item"><span>доставка в регионы</span> </div>-->
+<!--                           </nav>-->
+<!--                           <div class="content-checkout__body">-->
+<!--                              <div class="content-checkout__block  _tabs-block _active">-->
+<!--                                 <div class="content-checkout__form form-checkout">-->
+<!--                                    <div class="form-checkout__column">-->
+<!--                                       <div class="form-checkout__line">-->
+<!--                                          <div class="form-checkout__label">имя:&nbsp; <span>*</span></div>-->
+<!--                                          <div class="form-checkout__input">-->
+<!--                                             <input autocomplete="off" type="text" data-value="" name="form[]"-->
+<!--                                                data-error="ошибка" data-value="" class="input _req">-->
+<!--                                          </div>-->
+<!--                                       </div>-->
+<!--                                       <div class="form-checkout__line">-->
+<!--                                          <div class="form-checkout__label">тел:&nbsp; <span>*</span></div>-->
+<!--                                          <div class="form-checkout__input">-->
+<!--                                             <input autocomplete="off" type="text" data-value="" name="form[]"-->
+<!--                                                data-error="ошибка" data-value="" class="input _req">-->
+<!--                                          </div>-->
+<!--                                       </div>-->
+<!--                                       <div class="form-checkout__line">-->
+<!--                                          <div class="form-checkout__label">почта:</div>-->
+<!--                                          <div class="form-checkout__input">-->
+<!--                                             <input autocomplete="off" type="text" data-value="" name="form[]"-->
+<!--                                                data-error="ошибка" data-value="" class="input">-->
+<!--                                          </div>-->
+<!--                                       </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="form-checkout__column">-->
+<!--                                       <div class="form-checkout__text">-->
+<!--                                          <p><span>*</span>Поле, обязательные для заполнения</p>-->
+<!--                                          <p><span>*</span>Поле, обязательные для заполнения</p>-->
+<!--                                          <p><span>*</span>Поле, обязательные для заполнения</p>-->
+<!--                                       </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="form-checkout__column"></div>-->
+<!--                                 </div>-->
+<!--                              </div>-->
+<!--                              <div class="content-checkout__block  _tabs-block "></div>-->
+<!--                              <div class="content-checkout__block  _tabs-block "></div>-->
+<!--                           </div>-->
+<!--                        </div>-->
+<!--      -->
+<!--                        <div class="checkout__order order-checkout"></div>-->
+<!--                        <button type="submit" class="form__btn btn order-checkout__btn"> оформить</button>-->
+<!--                        </а>-->
+<!--                     </form>&ndash;&gt;-->
+<!--                  </div>-->
+<!--               </div>-->
+
+
+<!--            </div>-->
+<!--         </div>-->
+      </main>
+
+{% endblock content %}
+
+
+
+
+
+

@@ -26,6 +26,41 @@ class GoodsList(ListView):
         return queryset
 
 
+class GoodsFilteredList(ListView):
+    model = Good
+    template_name = 'src/category.html'
+    context_object_name = 'goods'
+
+    def get_queryset(self, **kwargs):
+        queryset = {
+            'new_female': Good.objects.filter(gender=1, type=self.kwargs.get('pk')).order_by('-is_new', '-id')[:12],
+            'top_female': Good.objects.filter(is_popular=True, gender=1, type=self.kwargs.get('pk'))[:12],
+            'new_male': Good.objects.filter(gender='0', type=self.kwargs.get('pk')).order_by('-is_new', '-id')[:12],
+            'top_male': Good.objects.filter(is_popular=True, gender='0', type=self.kwargs.get('pk'))[:12],
+            'new_children': Good.objects.filter(gender='2', type=self.kwargs.get('pk')).order_by('-is_new', '-id')[:12],
+            'top_children': Good.objects.filter(is_popular=True, gender='2', type=self.kwargs.get('pk'))[:12],
+        }
+        return queryset
+
+
+class GoodsSearchList(ListView):
+    model = Good
+    template_name = 'src/search.html'
+    context_object_name = 'goods'
+
+    def get_queryset(self):
+        queryset = {
+            'new_female': Good.objects.filter(gender=1, name__icontains=self.request.GET['word']).order_by('-is_new', '-id')[
+                          :12],
+            'top_female': Good.objects.filter(is_popular=True, gender=1)[:12],
+            'new_male': Good.objects.filter(gender='0').order_by('-is_new', '-id')[:12],
+            'top_male': Good.objects.filter(is_popular=True, gender='0')[:12],
+            'new_children': Good.objects.filter(gender='2').order_by('-is_new', '-id')[:12],
+            'top_children': Good.objects.filter(is_popular=True, gender='2')[:12],
+        }
+        return queryset
+
+
 class GoodDetailView(DetailView):
     model = Good
     template_name = 'src/page-product.html'

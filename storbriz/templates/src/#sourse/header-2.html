@@ -18,10 +18,10 @@
             </div>
 
             <div data-da="container__search,0,950" class="top-header__column top-header__column-2">
-               <form action="#" class="header__search search-header search">
+               <form method="get" action="{% url 'shop:search' %}" class="header__search search-header search">
                   <div class="search-header__content  search-content">
                      <div class="search-header__input search-content__input">
-                        <input autocomplete="off" placeholder="Искать товары " type="text" data-value="Искать товары" name="form[]" data-error=""
+                        <input autocomplete="off" placeholder="Искать товары " type="text" data-value="Искать товары" name="word" data-error=""
                            data-value="" class="input" >
 
                      </div>
