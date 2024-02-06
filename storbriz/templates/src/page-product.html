@@ -52,16 +52,16 @@
                         <div class="size-product__item">  <input type="radio" id="XL" name="drone" value="XL" /><label class="size-form" for="XL">XL</label></div>
                         <div class="size-product__item">  <input type="radio" id="XLL" name="drone" value="XLL" /><label class="size-form" for="XLL">XLL</label></div>
                      </div>
-                     <button type="submit" class="page-product__btn content-basket__btn btn  btn-input">выберите
-                        размер</button>
+
+
                      {% if user.is_authenticated %}
                      {% if good in user.cart.goods.all %}
-                     <a href="{% url 'shop:cart' user.cart.id %}">В корзину</a>
+                     <a class="page-product__btn content-basket__btn btn  btn-input" href="{% url 'shop:cart' user.cart.id %}">В корзину</a>
                      {% else %}
-                     <a href="{% url 'shop:add_to_cart' user.cart.id good.id %}">Добавить</a>
+                     <a class="page-product__btn content-basket__btn btn  btn-input" href="{% url 'shop:add_to_cart' user.cart.id good.id %}">Добавить</a>
                      {% endif %}
                      {% else %}
-                     <a href="{% url 'login' %}">Войти</a>
+                     <button type="submit" class="page-product__btn content-basket__btn btn  btn-input" href="{% url 'login' %}">Войти</button>
                      {% endif %}
                      <div class="page-product__about about-product _spollers">
                         <div class="about-product__information">
