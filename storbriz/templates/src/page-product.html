@@ -42,15 +42,15 @@
                   <div class="page-product__price card-product__price"> <span
                         class="card-product__count rub">{{ good.price|floatformat:0 }}</span>
                   </div>
-                  <div class="page-product__size size-product">
+                  <form class="page-product__size size-product">
                      <div class="size-product__title">размер</div>
                      <div class="size-product__items">
-                        <div class="size-product__item"><span>XS</span></div>
-                        <div class="size-product__item"><span>S</span></div>
-                        <div class="size-product__item"><span>M</span></div>
-                        <div class="size-product__item"><span>L</span></div>
-                        <div class="size-product__item"><span>XL</span></div>
-                        <div class="size-product__item"><span>XXL</span></div>
+                        <div class="size-product__item">  <input type="radio" id="XS" name="drone" value="XS" /><label class="size-form" for="XS">XS</label></div>
+                        <div class="size-product__item">  <input type="radio" id="S" name="drone" value="S" /><label class="size-form" for="S">S</label></div>
+                        <div class="size-product__item">  <input type="radio" id="M" name="drone" value="M" /><label class="size-form" for="M">M</label></div>
+                        <div class="size-product__item">  <input type="radio" id="L" name="drone" value="L" /><label class="size-form" for="L">L</label></div>
+                        <div class="size-product__item">  <input type="radio" id="XL" name="drone" value="XL" /><label class="size-form" for="XL">XL</label></div>
+                        <div class="size-product__item">  <input type="radio" id="XLL" name="drone" value="XLL" /><label class="size-form" for="XLL">XLL</label></div>
                      </div>
                      <button type="submit" class="page-product__btn content-basket__btn btn  btn-input">выберите
                         размер</button>
@@ -135,7 +135,7 @@
                            </div>
                         </div>
                      </div>
-                  </div>
+                  </form>
                </div>
             </div>
 

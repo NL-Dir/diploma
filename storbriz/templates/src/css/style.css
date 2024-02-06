@@ -3815,6 +3815,16 @@ textarea {
 	letter-spacing: 0em;
 	color: #1c1c1c;
 }
+.size-form {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+
+}
+.size-product__item input {
+display: none;
+}
+
 .personal-account {
 	padding: 0px 0px 40px 0px;
 }
