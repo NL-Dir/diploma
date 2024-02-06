@@ -80,7 +80,7 @@ class Cart(models.Model):
 
     @property
     def delivery_cost(self):
-        cost = 349 if self.goods_cost <= 5000 else 0
+        cost = 349 if 5000 >= self.goods_cost > 0 else 0
         return cost
 
     @property
