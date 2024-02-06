@@ -64,7 +64,7 @@
 
                      </a>-->
                      {% if user.is_authenticated %}
-                     <a href="{% url 'shop:cart' user.id %}" class="top-header__item item-header">
+                     <a href="{% url 'shop:cart' user.cart.id %}" class="top-header__item item-header">
                      {% else %}
                         <a href="{% url 'login' %}" class="top-header__item item-header">
                      {% endif %}
