@@ -291,13 +291,7 @@ function selects_update_all() {
 //Select=================
 
 //открытие/закрытие поиска===============================
-let searchSelect = document.querySelector('.search-header__content');
-let categorySearch = document.querySelector('.categories-search');
-searchSelect.addEventListener("click", function (e) {
-   searchSelect.classList.toggle('_active');
-   categorySearch.classList.toggle('_active');
-   //_slideToggle(categorySearch);
-});
+
 
 //открытие/закрытие поиска===============================
 
@@ -372,13 +366,7 @@ if (spollers.length > 0) {
 
 
 //открытие/закрытие поиска===============================
-/*let searchSelect = document.querySelector('.search-header__content');
-let categorySearch = document.querySelector('.categories-search');
-searchSelect.addEventListener("click", function (e) {
-   searchSelect.classList.toggle('_active');
-   categorySearch.classList.toggle('_active');
-   //_slideToggle(categorySearch);
-});*/
+
 
 //main-menu==============
 //document.getElementById('nav').onclick = function (event) {

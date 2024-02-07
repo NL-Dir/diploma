@@ -3745,13 +3745,7 @@ menuPageBurger_2.addEventListener("click", function (e) {
 
 
 
-/*let mainMenuLink = document.querySelector('.main-menu__link');
-let categoryMenu = document.querySelector('.category-menu');
-mainMenuLink.addEventListener("click", function (e) {
-   mainMenuLink.classList.toggle('_active');
-   categoryMenu.classList.toggle('_active');
-   //_slideToggle(categorySearch);
-});*/
+
 
 
 //открытие/закрытие бургера================================
@@ -3935,13 +3929,7 @@ function selects_update_all() {
 //Select=================
 
 //открытие/закрытие поиска===============================
-let searchSelect = document.querySelector('.search-header__content');
-let categorySearch = document.querySelector('.categories-search');
-searchSelect.addEventListener("click", function (e) {
-   searchSelect.classList.toggle('_active');
-   categorySearch.classList.toggle('_active');
-   //_slideToggle(categorySearch);
-});
+
 
 //открытие/закрытие поиска===============================
 
@@ -4016,13 +4004,7 @@ if (spollers.length > 0) {
 
 
 //открытие/закрытие поиска===============================
-/*let searchSelect = document.querySelector('.search-header__content');
-let categorySearch = document.querySelector('.categories-search');
-searchSelect.addEventListener("click", function (e) {
-   searchSelect.classList.toggle('_active');
-   categorySearch.classList.toggle('_active');
-   //_slideToggle(categorySearch);
-});*/
+
 
 //main-menu==============
 /*
