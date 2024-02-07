@@ -11,7 +11,7 @@
 
       <main class="content">
           {% include '../src/#sourse/main-menu.html' %}
-         <div class="authorization__conrainer  container">
+         <div class="authorization__container  container">
             <form method="post" action="#" id="" class="authorization ">
                {% csrf_token %}
                <div class="popup__body">
@@ -25,6 +25,7 @@
                         {% for field in form %}
                         <div class="authorization__input-container ">
                            {{ field }}
+                           {{ field.errors.as_ul }}
                         </div>
                         {% endfor %}
                         {% if user.is_authenticated %}
@@ -39,6 +40,14 @@
                      </div>
                   </div>
                </div>
+         {% if form.non_field_errors %}
+         {% for error in form.non_field_errors %}
+                {{ error }}
+         {% endfor %}
+        {% endif %}
+        {% for hidden in form.hidden_fields %}
+            {{ hidden }}
+        {% endfor %}
 
             </form>
          </div>

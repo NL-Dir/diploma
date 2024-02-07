@@ -83,7 +83,7 @@
                               </div>
 
                               <ul class="about-product__list">
-                                 <li class="about-product__link">{{ good.description }}
+                                 <li class="about-product__link">{{ good.description|linebreaks }}
                                  </li>
 <!--                                 <li class="about-product__link">- классический круглый вырез горловины в мелкий рубчик-->
 <!--                                 </li>-->
@@ -102,31 +102,31 @@
                            <div class="about-product__body">
                               <div class="about-product__item">
                                  <div class="about-product__left">состав</div>
-                                 <div class="about-product__right">{{ good.material }}</div>
+                                 <div class="about-product__right">{{ good.material|linebreaks }}</div>
                               </div>
-                              <div class="about-product__item">
-                                 <div class="about-product__left">оттенок</div>
-                                 <div class="about-product__right">белый принт</div>
-                              </div>
-                              <div class="about-product__item">
-                                 <div class="about-product__left">покрой </div>
-                                 <div class="about-product__right">прямой</div>
-                              </div>
-                              <div class="about-product__item">
-                                 <div class="about-product__left">длина</div>
-                                 <div class="about-product__right">средний</div>
-                              </div>
-                              <div class="about-product__item">
-                                 <div class="about-product__left">вырез</div>
-                                 <div class="about-product__right">круглый</div>
-                              </div>
+<!--                              <div class="about-product__item">-->
+<!--                                 <div class="about-product__left">оттенок</div>-->
+<!--                                 <div class="about-product__right">белый принт</div>-->
+<!--                              </div>-->
+<!--                              <div class="about-product__item">-->
+<!--                                 <div class="about-product__left">покрой </div>-->
+<!--                                 <div class="about-product__right">прямой</div>-->
+<!--                              </div>-->
+<!--                              <div class="about-product__item">-->
+<!--                                 <div class="about-product__left">длина</div>-->
+<!--                                 <div class="about-product__right">средний</div>-->
+<!--                              </div>-->
+<!--                              <div class="about-product__item">-->
+<!--                                 <div class="about-product__left">вырез</div>-->
+<!--                                 <div class="about-product__right">круглый</div>-->
+<!--                              </div>-->
                            </div>
                         </div>
                         <div class="about-product__information">
                            <div class="about-product__title _spoller">рекомендация по уходу</div>
                            <div class="about-product__body">
                               <ul class="about-product__list">
-                                 <li class="about-product__link">{{ good.recommendation }}</li>
+                                 <li class="about-product__link">{{ good.recommendation|linebreaks }}</li>
 <!--                                 <li class="about-product__link">не отбеливать</li>-->
 <!--                                 <li class="about-product__link">машинная сушка запрещена</li>-->
 <!--                                 <li class="about-product__link">глажение при 110ºс</li>-->

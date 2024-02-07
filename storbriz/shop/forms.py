@@ -75,5 +75,8 @@ class OrderCreateForm(ModelForm):
             self.fields['flat'].widget.attrs.update({"placeholder": 'квартира'})
             self.fields['time_period'] = forms.ChoiceField(choices=TIME_CHOICES, widget=forms.RadioSelect())
             self.fields['total'].widget = forms.HiddenInput()
+            self.fields['user'].widget = forms.HiddenInput()
+            self.fields['date'].widget = forms.DateInput(format='%Y-%m-%d', attrs={'type': 'date'})
+            self.fields['status'].widget = forms.HiddenInput()
             self.fields[field].widget.attrs.update({"class": "form-delivery__input input window-input _req",
                                                     "autocomplete": "off"})

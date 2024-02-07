@@ -63,7 +63,7 @@ class Good(models.Model):
     article = models.CharField(max_length=20, verbose_name='артикул', null=True, blank=True)
     material = models.TextField(verbose_name='состав', null=True, blank=True)
     recommendation = models.TextField(verbose_name='рекомендации', null=True, blank=True)
-    goods = models.ManyToManyField('Cart', through='CartGood')
+    carts = models.ManyToManyField('Cart', through='CartGood')
 
 
 class Cart(models.Model):
@@ -115,16 +115,36 @@ class Order(models.Model):
         (1, '13:00 - 17:00'),
         (1, '17:00 - 21:00'),
     )
+    DELIVERY_STATUS = (
+        (0, 'Создан'),
+        (1, 'Обработан'),
+        (2, 'Собран'),
+        (3, 'Передан в доставку'),
+        (4, 'Получен')
+    )
     user = models.ForeignKey(User, related_name='orders', on_delete=models.CASCADE)
     street = models.CharField(max_length=255, verbose_name='улица', null=True, blank=True)
     building = models.CharField(max_length=15, verbose_name='дом', null=True, blank=True)
     flat = models.CharField(max_length=15, verbose_name='квартира', null=True, blank=True)
     date = models.DateField(verbose_name='дата доставки', null=True, blank=True)
     time_period = models.IntegerField(verbose_name='интервал доставки', null=True, blank=True, choices=TIME_CHOICES)
-    total = models.FloatField(verbose_name='сумма', null=True, blank=True)
+    total = models.FloatField(verbose_name='сумма', null=True, blank=True, default='1000')
+    status = models.IntegerField(verbose_name='статус заказа', default=0, choices=DELIVERY_STATUS)
+
+
+class Question(models.Model):
+    user = models.ForeignKey(User, related_name='questions', on_delete=models.CASCADE)
+    text = models.TextField(verbose_name='Ваш вопрос')
+    answer = models.TextField(verbose_name='Ответ службы поддержки')
 
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         Cart.objects.create(user=instance)
+
+
+@receiver(post_save, sender=Order)
+def cart_clean(sender, instance, created, **kwargs):
+    if created:
+        instance.user.cart.goods.clear()

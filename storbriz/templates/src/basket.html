@@ -35,7 +35,7 @@
    <div class="basket-product__content">
       <div class="basket-product__top">
          <div class="basket-product__name card-product__name">{{ good.name }}</div>
-         <a href="{% url 'shop:delete_from_cart' user.id good.id %}" class="basket-product__delete "><img src="{% static 'img/img/close.png' %}" alt="#"></a>
+         <a href="{% url 'shop:delete_from_cart' cart.id good.id %}" class="basket-product__delete "><img src="{% static 'img/img/close.png' %}" alt="#"></a>
       </div>
       <div class="basket-product__buttom">
          <div class="basket-product__price card-product__price rub">{{ good.price|floatformat:0 }}

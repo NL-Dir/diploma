@@ -50,7 +50,8 @@ class GoodsSearchList(ListView):
 
     def get_queryset(self):
         queryset = {
-            'new_female': Good.objects.filter(gender=1, name__icontains=self.request.GET['word']).order_by('-is_new', '-id')[
+            'new_female': Good.objects.filter(gender=1, name__icontains=self.request.GET['word']).order_by('-is_new',
+                                                                                                           '-id')[
                           :12],
             'top_female': Good.objects.filter(is_popular=True, gender=1)[:12],
             'new_male': Good.objects.filter(gender='0').order_by('-is_new', '-id')[:12],
@@ -116,5 +117,13 @@ class UserUpdateView(UpdateView):
 
 class OrderCreateView(CreateView):
     form_class = OrderCreateForm
-    success_url = reverse_lazy('home')
     template_name = 'src/page-delivery.html'
+
+    def get_success_url(self):
+        return reverse_lazy('account', kwargs={'pk': self.object.user.id})
+
+    def get_initial(self, *args, **kwargs):
+        initial = super(OrderCreateView, self).get_initial(**kwargs)
+        initial['user'] = self.request.user
+        initial['total'] = self.request.user.cart.total
+        return initial

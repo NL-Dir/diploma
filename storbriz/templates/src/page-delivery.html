@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-{{ good.name }}
+Оформление заказа
 {% endblock title %}
 
 {% block content %}
@@ -12,7 +12,7 @@
 
                <div class="page-delivery__content">
                   <div class="page-delivery__title title">укажите адрес доставки</div>
-                  <form method="post" class="page-delivery__form form-delivery" action="#">
+                  <form method="post" class="page-delivery__form form-delivery" action="{% url 'shop:order' %}">
                      {% csrf_token %}
                      <div class="form-delivery__top">
                         <div class="form-delivery__container ">
@@ -30,39 +30,40 @@
                      <div id="more" class="form-delivery__information information-form">
                         <div class="information-form__date">
                            <div class="information-form__title page-delivery__title title">дата</div>
+                           {{ form.date }}
                            <div class="information-form__date-items">
-                              <div class="information-form__date-item">
-                                 <div class="information-form__date-number">25</div>
-                                 <div class="information-form__date-day">чт</div>
-                              </div>
-                              <div class="information-form__date-item">
-                                 <div class="information-form__date-number">25</div>
-                                 <div class="information-form__date-day">чт</div>
-                              </div>
-                              <div class="information-form__date-item">
-                                 <div class="information-form__date-number">25</div>
-                                 <div class="information-form__date-day">чт</div>
-                              </div>
-                              <div class="information-form__date-item">
-                                 <div class="information-form__date-number">25</div>
-                                 <div class="information-form__date-day">чт</div>
-                              </div>
-                              <div class="information-form__date-item">
-                                 <div class="information-form__date-number">25</div>
-                                 <div class="information-form__date-day">чт</div>
-                              </div>
-                              <div class="information-form__date-item">
-                                 <div class="information-form__date-number">25</div>
-                                 <div class="information-form__date-day">чт</div>
-                              </div>
-                              <div class="information-form__date-item">
-                                 <div class="information-form__date-number">25</div>
-                                 <div class="information-form__date-day">чт</div>
-                              </div>
-                              <div class="information-form__date-item">
-                                 <div class="information-form__date-number">25</div>
-                                 <div class="information-form__date-day">чт</div>
-                              </div>
+<!--                              <div class="information-form__date-item">-->
+<!--                                 <div class="information-form__date-number">25</div>-->
+<!--                                 <div class="information-form__date-day">чт</div>-->
+<!--                              </div>-->
+<!--                              <div class="information-form__date-item">-->
+<!--                                 <div class="information-form__date-number">25</div>-->
+<!--                                 <div class="information-form__date-day">чт</div>-->
+<!--                              </div>-->
+<!--                              <div class="information-form__date-item">-->
+<!--                                 <div class="information-form__date-number">25</div>-->
+<!--                                 <div class="information-form__date-day">чт</div>-->
+<!--                              </div>-->
+<!--                              <div class="information-form__date-item">-->
+<!--                                 <div class="information-form__date-number">25</div>-->
+<!--                                 <div class="information-form__date-day">чт</div>-->
+<!--                              </div>-->
+<!--                              <div class="information-form__date-item">-->
+<!--                                 <div class="information-form__date-number">25</div>-->
+<!--                                 <div class="information-form__date-day">чт</div>-->
+<!--                              </div>-->
+<!--                              <div class="information-form__date-item">-->
+<!--                                 <div class="information-form__date-number">25</div>-->
+<!--                                 <div class="information-form__date-day">чт</div>-->
+<!--                              </div>-->
+<!--                              <div class="information-form__date-item">-->
+<!--                                 <div class="information-form__date-number">25</div>-->
+<!--                                 <div class="information-form__date-day">чт</div>-->
+<!--                              </div>-->
+<!--                              <div class="information-form__date-item">-->
+<!--                                 <div class="information-form__date-number">25</div>-->
+<!--                                 <div class="information-form__date-day">чт</div>-->
+<!--                              </div>-->
 
                            </div>
                         </div>
@@ -74,10 +75,13 @@
                                  <div class="information-form__time-time">{{ radio }}</div>
                               </div>
                               {% endfor %}
+                              {{ form.user }}
+                              {{ form.total }}
+                              {{ form.status }}
                            </div>
                         </div>
                      </div>
-                     <button href="" type="submit" id="btn-show"
+                     <button type="submit" id="btn-show"
                         class="page-delivery__btn btn  entrance__btn form__viewpass page-delivery__btn-date">Оформить</button>
                      <div class="page-delivery__text">нажимая на кнопку, вы подтверждаете согласие с Политикой
                         конфиденциальности</div>
@@ -85,10 +89,10 @@
 
                      <a href="{% url 'shop:cart' user.id %}" type="submit"
                         class="page-delivery__btn btn  entrance__btn form__viewpass">Назад</a>
-
                   </form>
                </div>
             </div>
          </div>
+
       </main>
 {% endblock content %}
