@@ -78,5 +78,6 @@ class OrderCreateForm(ModelForm):
             self.fields['user'].widget = forms.HiddenInput()
             self.fields['date'].widget = forms.DateInput(format='%Y-%m-%d', attrs={'type': 'date'})
             self.fields['status'].widget = forms.HiddenInput()
+            self.fields['goods'].widget.attrs.update({"style": 'background-color: red;'})
             self.fields[field].widget.attrs.update({"class": "form-delivery__input input window-input _req",
                                                     "autocomplete": "off"})

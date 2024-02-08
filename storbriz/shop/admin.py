@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Cart, Order, Good, CartGood
+from .models import Cart, Order, Good, CartGood, OrderGood
 
 
 class GoodAdmin(admin.ModelAdmin):
@@ -11,3 +11,4 @@ admin.site.register(Cart)
 admin.site.register(Order)
 admin.site.register(Good, GoodAdmin)
 admin.site.register(CartGood)
+admin.site.register(OrderGood)
