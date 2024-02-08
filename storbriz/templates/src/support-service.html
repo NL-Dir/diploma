@@ -1,0 +1,31 @@
+{% extends './main.html' %}
+{% load static %}
+
+{% block title %}
+Имя страницы
+{% endblock title %}
+
+{% block content %}
+
+  <main class="content">
+
+         <div class="support-service__container container">
+            <div class="support-service__content support-service">
+               <div class="support-service__title title">cлужба поддержки</div>
+               <form class="support-service__form" action="">
+                  <div class="support-service__text">Опишите вашу проблему, в ближайшее время с вами свяжется наш
+                     менеджер
+                  </div>
+                  <div class="support-service__comment"><textarea name="comment"></textarea></div>
+                  <button href="" type="submit"
+                     class="support-service__btn  btn  entrance__btn form__viewpass">Отправить</button>
+               </form>
+            </div>
+         </div>
+
+      </main>
+
+
+
+
+{% endblock content %}

@@ -8,15 +8,15 @@
 {% block content %}
 
       <main class="content">
-         <div class="header__bottom container">
-            <ul class="header__bottom-menu">
-               <li><a class="header__bottom-link header__bottom-link-active _tabs-item _active" href="#">Женское</a>
-               </li>
-               <li><a class="header__bottom-link _tabs-item" href="#">Мужское</a></li>
-               <li><a class="header__bottom-link _tabs-item" href="#">Детское</a></li>
-            </ul>
+<!--         <div class="header__bottom container">-->
+<!--            <ul class="header__bottom-menu">-->
+<!--               <li><a class="header__bottom-link header__bottom-link-active _tabs-item _active" href="#">Женское</a>-->
+<!--               </li>-->
+<!--               <li><a class="header__bottom-link _tabs-item" href="#">Мужское</a></li>-->
+<!--               <li><a class="header__bottom-link _tabs-item" href="#">Детское</a></li>-->
+<!--            </ul>-->
 
-         </div>
+<!--         </div>-->
 
 
  {% include './#sourse/main-menu.html' %}
@@ -58,12 +58,9 @@
                      <div class="page__products products-block">
                         <div class="products-block__container container">
                            <div class="products-block__content">
-                              <div class="products-block__top">
-                                 <div class="products-block__title title">Новинки</div>
-                                 <button type="submit" class="products-block__btn">Смотреть все</button>
-                              </div>
+
                               <div class="products-block__goods">
-{% for good in goods.new_female %}
+{% for good in goods %}
 <a href="{% url 'shop:good' good.id %}" class="card-product">
    {% if good.is_new %}
    <div class="card-product__labels">

@@ -403,16 +403,6 @@ body.lock {
 		margin: 0px 0px 20px 0px;
 	}
 }
-.search-header__content._active {
-	border-bottom: 1px solid rgba(68, 98, 255, 0);
-	border-top: 1px solid #5940d4;
-	border-left: 1px solid #5940d4;
-	border-right: 1px solid #5940d4;
-	border-radius: 8px 8px 0px 8px;
-}
-.search-header__content._active .search {
-	border-radius: 0px;
-}
 .search-header__categories {
 	width: 100%;
 	position: absolute;
@@ -3816,13 +3806,17 @@ textarea {
 	color: #1c1c1c;
 }
 .size-form {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
 	width: 100%;
-
 }
+
 .size-product__item input {
-display: none;
+	display: none;
 }
 
 .personal-account {
@@ -3837,6 +3831,21 @@ display: none;
 }
 .personal-account__title {
 	margin: 0px 0px 10px 0px;
+}
+.personal-account__profile {
+	margin: 0px 0px 10px 0px;
+}
+.personal-account__order {
+	margin: 0 auto;
+	cursor: pointer;
+	background-color: #f9f9f9;
+	padding: 20px 30px 20px 30px;
+	max-width: 900px;
+	text-align: left;
+	border-bottom: 1px solid #1c1c1c;
+}
+.personal-account__order:last-child {
+	border-bottom: none;
 }
 .personal-account__content {
 	text-align: left;
@@ -3876,6 +3885,71 @@ display: none;
 }
 .item-account__information {
 	color: #1c1c1c;
+}
+
+.orders-account__content {
+	margin: 20px;
+}
+.orders-account__status {
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 28px;
+	letter-spacing: 0em;
+	margin: 0px 0px 5px 0px;
+	color: #959594;
+	text-transform: uppercase;
+}
+.orders-account__name {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 28px;
+	letter-spacing: 0em;
+	color: #1c1c1c;
+	margin: 0px 0px 10px 0px;
+}
+.orders-account__text {
+	margin: 0px 5px 0px 0px;
+}
+.orders-account__number {
+	margin: 0px 5px 0px 0px;
+}
+.orders-account__date {
+	margin: 0px 5px 0px 0px;
+}
+.orders-account__price {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 28px;
+	letter-spacing: 0em;
+	color: #959594;
+	margin: 0px 0px 20px 0px;
+}
+.orders-account__price-text {
+	margin: 0px 5px 0px 0px;
+}
+.orders-account__products {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+.orders-account__product {
+	margin: 0px 5px 0px 5px;
+	cursor: pointer;
+}
+
+.orders-account__image {
+	position: relative;
+	width: 100px;
+	height: 150px;
+}
+.orders-account__image img {
+	position: absolute;
 }
 
 .page-delivery {
@@ -3995,6 +4069,36 @@ display: none;
 }
 #more.off {
 	display: none;
+}
+
+.support-service__content {
+	text-align: left;
+	margin: 0 auto;
+	border: 1px solid #959594;
+	border-radius: 24px;
+	background-color: #f9f9f9;
+	padding: 20px 30px 20px 30px;
+	max-width: 900px;
+}
+.support-service__title {
+	margin: 0px 0px 20px 0px;
+}
+.support-service__text {
+	margin: 0px 0px 20px 0px;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 28px;
+	letter-spacing: 0em;
+	margin: 0px 0px 20px 0px;
+	color: #959594;
+}
+.support-service__comment {
+	margin: 0px 0px 20px 0px;
+}
+
+textarea {
+	width: 400px;
+	height: 200px;
 }
 
 .wrapper {

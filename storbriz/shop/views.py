@@ -49,16 +49,7 @@ class GoodsSearchList(ListView):
     context_object_name = 'goods'
 
     def get_queryset(self):
-        queryset = {
-            'new_female': Good.objects.filter(gender=1, name__icontains=self.request.GET['word']).order_by('-is_new',
-                                                                                                           '-id')[
-                          :12],
-            'top_female': Good.objects.filter(is_popular=True, gender=1)[:12],
-            'new_male': Good.objects.filter(gender='0').order_by('-is_new', '-id')[:12],
-            'top_male': Good.objects.filter(is_popular=True, gender='0')[:12],
-            'new_children': Good.objects.filter(gender='2').order_by('-is_new', '-id')[:12],
-            'top_children': Good.objects.filter(is_popular=True, gender='2')[:12],
-        }
+        queryset = Good.objects.filter(name__icontains=self.request.GET['word']).order_by('-is_new','-id')[:12]
         return queryset
 
 
