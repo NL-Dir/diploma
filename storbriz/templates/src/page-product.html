@@ -55,11 +55,7 @@
 
 
                      {% if user.is_authenticated %}
-                     {% if good in user.cart.goods.all %}
-                     <a class="page-product__btn content-basket__btn btn  btn-input" href="{% url 'shop:cart' user.cart.id %}">В корзину</a>
-                     {% else %}
                      <button type="submit" class="page-product__btn content-basket__btn btn  btn-input" >Добавить</button>
-                     {% endif %}
                      {% else %}
                      <a class="page-product__btn content-basket__btn btn  btn-input" href="{% url 'login' %}">Войти</a>
                      {% endif %}

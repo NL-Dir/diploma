@@ -28,20 +28,20 @@
 {% if not cart.goods.all %}
       Товаров в корзине нет
 {% else %}
-{% for good in cart.goods.all %}
+{% for good in cart.cartgood_set.all %}
 <div class="basket-product">
-   <a href="{% url 'shop:good' good.id %}" class="basket-product__img card-product__image  ibg"><img src="{{ good.image_1.url }}"
+   <a href="{% url 'shop:good' good.id %}" class="basket-product__img card-product__image  ibg"><img src="{{ good.goodThrough.image_1.url }}"
          alt="#"></a>
    <div class="basket-product__content">
       <div class="basket-product__top">
-         <div class="basket-product__name card-product__name">{{ good.name }}</div>
+         <div class="basket-product__name card-product__name">{{ good.goodThrough.name }}</div>
          <a href="{% url 'shop:delete_from_cart' cart.id good.id %}" class="basket-product__delete "><img src="{% static 'img/img/close.png' %}" alt="#"></a>
       </div>
       <div class="basket-product__buttom">
-         <div class="basket-product__price card-product__price rub">{{ good.price|floatformat:0 }}
+         <div class="basket-product__price card-product__price rub">{{ good.goodThrough.price|floatformat:0 }}
          </div>
          <div class="basket-product__size-content">
-            <div class="basket-product__size">{{ good.cartgood.size }}</div>
+            <div class="basket-product__size">{{ good.get_size_display }}</div>
             <div class="basket-product__select">
                <select name="form[]" class="show">
                   <option value="1" selected="selected">1 шт</option>
