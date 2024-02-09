@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
-from django.db import models
-from django.db.models.signals import post_save
+from django.db import models, transaction
+from django.db.models.signals import post_save, m2m_changed
 from django.dispatch import receiver
 
 
@@ -64,6 +64,7 @@ class Good(models.Model):
     material = models.TextField(verbose_name='состав', null=True, blank=True)
     recommendation = models.TextField(verbose_name='рекомендации', null=True, blank=True)
     carts = models.ManyToManyField('Cart', through='CartGood')
+    orders = models.ManyToManyField('Order', through='OrderGood')
 
 
 class Cart(models.Model):
@@ -130,6 +131,12 @@ class Order(models.Model):
     time_period = models.IntegerField(verbose_name='интервал доставки', null=True, blank=True, choices=TIME_CHOICES)
     total = models.FloatField(verbose_name='сумма', null=True, blank=True, default='1000')
     status = models.IntegerField(verbose_name='статус заказа', default=0, choices=DELIVERY_STATUS)
+    goods = models.ManyToManyField(Good, through='OrderGood', blank=True)
+
+
+class OrderGood(models.Model):
+    orderThrough = models.ForeignKey(Order, on_delete=models.CASCADE)
+    goodThrough = models.ForeignKey(Good, on_delete=models.CASCADE)
 
 
 class Question(models.Model):

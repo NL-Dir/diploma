@@ -117,4 +117,5 @@ class OrderCreateView(CreateView):
         initial = super(OrderCreateView, self).get_initial(**kwargs)
         initial['user'] = self.request.user
         initial['total'] = self.request.user.cart.total
+        initial['goods'] = self.request.user.cart.goods.all()
         return initial
