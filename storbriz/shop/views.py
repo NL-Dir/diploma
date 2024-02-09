@@ -61,7 +61,6 @@ class GoodDetailView(DetailView):
 
     def get_success_usl(self):
         if self.request.POST:
-            print(self.request.user)
             return reverse_lazy('shop:good',
                                 kwargs={'pk': self.id})
 
@@ -73,7 +72,8 @@ class CartDetailView(DetailView):
 
 
 def add_to_cart(request, pk, good_id):
-    request.user.cart.goods.add(Good.objects.get(id=good_id))
+    print(request)
+    request.user.cart.goods.add(Good.objects.get(id=good_id), through_defaults={"size": request.GET['size']})
     request.user.cart.save()
     return HttpResponseRedirect(reverse('shop:good', kwargs={'pk': good_id}))
 

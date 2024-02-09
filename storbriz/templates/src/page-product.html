@@ -42,15 +42,15 @@
                   <div class="page-product__price card-product__price"> <span
                         class="card-product__count rub">{{ good.price|floatformat:0 }}</span>
                   </div>
-                  <form class="page-product__size size-product">
+                  <form method="get" class="page-product__size size-product" action="{% url 'shop:add_to_cart' user.cart.id good.id %}">
                      <div class="size-product__title">размер</div>
                      <div class="size-product__items">
-                        <div class="size-product__item">  <input type="radio" id="XS" name="drone" value="XS" /><label class="size-form" for="XS">XS</label></div>
-                        <div class="size-product__item">  <input type="radio" id="S" name="drone" value="S" /><label class="size-form" for="S">S</label></div>
-                        <div class="size-product__item">  <input type="radio" id="M" name="drone" value="M" /><label class="size-form" for="M">M</label></div>
-                        <div class="size-product__item">  <input type="radio" id="L" name="drone" value="L" /><label class="size-form" for="L">L</label></div>
-                        <div class="size-product__item">  <input type="radio" id="XL" name="drone" value="XL" /><label class="size-form" for="XL">XL</label></div>
-                        <div class="size-product__item">  <input type="radio" id="XLL" name="drone" value="XLL" /><label class="size-form" for="XLL">XLL</label></div>
+                        <div class="size-product__item">  <input type="radio" id="XS" name="size" value="0"><label class="size-form" for="XS">XS</label></div>
+                        <div class="size-product__item">  <input type="radio" id="S" name="size" value="1"><label class="size-form" for="S">S</label></div>
+                        <div class="size-product__item">  <input type="radio" id="M" name="size" value="2" checked><label class="size-form" for="M">M</label></div>
+                        <div class="size-product__item">  <input type="radio" id="L" name="size" value="3"><label class="size-form" for="L">L</label></div>
+                        <div class="size-product__item">  <input type="radio" id="XL" name="size" value="4"><label class="size-form" for="XL">XL</label></div>
+                        <div class="size-product__item">  <input type="radio" id="XXL" name="size" value="5"><label class="size-form" for="XXL">XLL</label></div>
                      </div>
 
 
@@ -58,10 +58,10 @@
                      {% if good in user.cart.goods.all %}
                      <a class="page-product__btn content-basket__btn btn  btn-input" href="{% url 'shop:cart' user.cart.id %}">В корзину</a>
                      {% else %}
-                     <a class="page-product__btn content-basket__btn btn  btn-input" href="{% url 'shop:add_to_cart' user.cart.id good.id %}">Добавить</a>
+                     <button type="submit" class="page-product__btn content-basket__btn btn  btn-input" >Добавить</button>
                      {% endif %}
                      {% else %}
-                     <button type="submit" class="page-product__btn content-basket__btn btn  btn-input" href="{% url 'login' %}">Войти</button>
+                     <a class="page-product__btn content-basket__btn btn  btn-input" href="{% url 'login' %}">Войти</a>
                      {% endif %}
                      <div class="page-product__about about-product _spollers">
                         <div class="about-product__information">
