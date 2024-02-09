@@ -142,7 +142,7 @@ class OrderGood(models.Model):
 class Question(models.Model):
     user = models.ForeignKey(User, related_name='questions', on_delete=models.CASCADE)
     text = models.TextField(verbose_name='Ваш вопрос')
-    answer = models.TextField(verbose_name='Ответ службы поддержки')
+    answer = models.TextField(verbose_name='Ответ службы поддержки', null=True, blank=True)
 
 
 @receiver(post_save, sender=User)

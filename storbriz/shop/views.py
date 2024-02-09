@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
@@ -6,7 +7,7 @@ from django.forms import modelformset_factory
 from django.urls import reverse, reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
 
-from .forms import UserRegisterForm, UserUpdateForm, OrderCreateForm
+from .forms import UserRegisterForm, UserUpdateForm, OrderCreateForm, QuestionCreateForm
 from .models import Good, Cart
 
 
@@ -49,7 +50,7 @@ class GoodsSearchList(ListView):
     context_object_name = 'goods'
 
     def get_queryset(self):
-        queryset = Good.objects.filter(name__icontains=self.request.GET['word']).order_by('-is_new','-id')[:12]
+        queryset = Good.objects.filter(name__icontains=self.request.GET['word']).order_by('-is_new', '-id')[:12]
         return queryset
 
 
@@ -118,4 +119,18 @@ class OrderCreateView(CreateView):
         initial['user'] = self.request.user
         initial['total'] = self.request.user.cart.total
         initial['goods'] = self.request.user.cart.goods.all()
+        return initial
+
+
+class QuestionCreateView(SuccessMessageMixin, CreateView):
+    form_class = QuestionCreateForm
+    template_name = 'src/support-service.html'
+    success_message = 'Спасибо за Ваше обращение, мы свяжемся с Вами в ближайшее время'
+
+    def get_success_url(self):
+        return self.request.path
+
+    def get_initial(self, *args, **kwargs):
+        initial = super(QuestionCreateView, self).get_initial(**kwargs)
+        initial['user'] = self.request.user
         return initial

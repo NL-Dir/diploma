@@ -12,13 +12,24 @@
          <div class="support-service__container container">
             <div class="support-service__content support-service">
                <div class="support-service__title title">cлужба поддержки</div>
-               <form class="support-service__form" action="">
+               <form method="post" class="support-service__form" action="{% url 'shop:support' %}">
+                   {% csrf_token %}
+                   {% if messages %}
+                   {% for message in messages %}
+                   <div class="support-service__text">{{ message }}
+                  </div>
+                   {% endfor %}
+                   {% else %}
+
                   <div class="support-service__text">Опишите вашу проблему, в ближайшее время с вами свяжется наш
                      менеджер
                   </div>
-                  <div class="support-service__comment"><textarea name="comment"></textarea></div>
+                  <div class="support-service__comment">{{ form.text }}</div>
+                   {{ form.user }}
+                   {{ form.answer }}
                   <button href="" type="submit"
                      class="support-service__btn  btn  entrance__btn form__viewpass">Отправить</button>
+                   {% endif %}
                </form>
             </div>
          </div>

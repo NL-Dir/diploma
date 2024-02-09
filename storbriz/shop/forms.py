@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.forms import ModelForm
 from django import forms
 
-from .models import Order
+from .models import Order, Question
 
 
 class UserRegisterForm(UserCreationForm):
@@ -79,5 +79,20 @@ class OrderCreateForm(ModelForm):
             self.fields['date'].widget = forms.DateInput(format='%Y-%m-%d', attrs={'type': 'date'})
             self.fields['status'].widget = forms.HiddenInput()
             self.fields['goods'].widget.attrs.update({"style": 'background-color: red;'})
+            self.fields[field].widget.attrs.update({"class": "form-delivery__input input window-input _req",
+                                                    "autocomplete": "off"})
+
+
+class QuestionCreateForm(ModelForm):
+    class Meta:
+        model = Question
+        fields = '__all__'
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields['text'].widget.attrs.update({"placeholder": 'Напишите Ваш вопрос в этом окне'})
+            self.fields['answer'].widget = forms.HiddenInput()
+            self.fields['user'].widget = forms.HiddenInput()
             self.fields[field].widget.attrs.update({"class": "form-delivery__input input window-input _req",
                                                     "autocomplete": "off"})
